@@ -1,0 +1,23 @@
+.container{
+  margin: 60px;
+  background-color: deepskyblue;
+}
+
+.container p, .container button{
+  margin-left: 15px;
+}
+
+.signupBtn{
+  height: 4vh;
+  width: 15vh;
+  border: 1.25px dodgerblue;
+  border-radius: 16px;
+  background-color: dodgerblue;
+  color: white;
+  font-weight: bold;
+}
+
+.signupBtn:hover{
+  cursor: pointer;
+  opacity: 0.7;
+}
