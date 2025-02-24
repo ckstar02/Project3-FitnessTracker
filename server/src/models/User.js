@@ -51,12 +51,31 @@ const UserSchema = new Schema(
       required: true,
       unique: true,
       minlength: 8
-    }
+    },
+    dailyGoals: [
+
+    ],
+    savedRecipes: [
+
+    ]
   },
   {
+    toJSON: {
+      virtuals: true
+    },
     id: false,
   }
 );
+
+//Virtual for dailyGoals
+UserSchemama.virtual('numDailyGoals').get(() => {
+  return this.dailyGoals?.length || 0;
+});
+
+// Virtual for savedRecipes
+UserSchema.virtual('numSavedRecipe').get(() => {
+  return this.savedRecipes?.length || 0;
+});
 
 const User = mongoose.model('USer', UserSchema);
 export default User;
