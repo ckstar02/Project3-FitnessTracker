@@ -1,4 +1,30 @@
 .header{
   display: flex;
   justify-content: space-between;
+  background-color:dodgerblue;
+  color: white;
+}
+
+.header h1{
+  margin-left: 20px;
+  margin-top: 30px;
+}
+
+.profileContainer{
+  width: 45%;
+  display: flex;
+  justify-content: right;
+  margin-right: 20px;
+  margin-top: 20px;
+}
+
+.profileContainer p{
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.profileContainer img{
+  width: 10%;
+  height: 70%;
+  border-radius: 100%;
 }
