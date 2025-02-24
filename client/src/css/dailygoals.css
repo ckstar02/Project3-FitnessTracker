@@ -1,0 +1,33 @@
+
+@font-face {
+    font-family: 'Sport';
+    src: url(./Sport\ Bold.otf) format("opentype");
+}
+.grid-container {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    gap: 6px;
+    background-color: #f1f3a2;
+    padding: 9px;
+    grid-auto-rows: minmax(60px, auto);
+
+  }
+  .grid-container > div {
+    background-color: #89d4f4;
+    padding: 5px;
+    }
+    .dailygoals {
+        font-family: 'Sport';
+        font-size: 45px;
+      grid-column: 1/3;
+    }
+  .exercisetracker {
+    font-family: 'Sport';
+    font-size: 30px;
+grid-row: 2/5;
+  }
+.currentcalories {
+    font-family: 'Sport';
+    font-size: 30px;
+    grid-row: 2/5;
+}
