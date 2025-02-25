@@ -53,10 +53,16 @@ const UserSchema = new Schema(
       minlength: 8
     },
     dailyGoals: [
-
+      {
+        type: Schema.Types.ObjectId,
+        ref: 'DaylyGoals'
+    }
     ],
     savedRecipes: [
-
+      {
+        type: Schema.Types.ObjectId,
+        ref: 'SavedRecipes'
+    }
     ]
   },
   {
