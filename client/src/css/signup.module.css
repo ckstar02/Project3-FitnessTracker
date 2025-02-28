@@ -1,0 +1,186 @@
+.headingContainer{
+  margin: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.formContainer{
+  margin: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.nameForm{
+  border: 1.5px solid black;
+  width: 20%;
+  height: 35vh;
+  width: 50vh;
+}
+
+.nameForm label, .nameForm input, .nameForm button{
+  margin: 20px;
+  display: block;
+}
+
+.nameForm input{
+  width: 90.5%;
+  height: 45px;
+  border-radius: 4.5px;
+  border: 1.15px solid black;
+}
+
+
+.signupFormBtn button{
+  width: 92%;
+  background-color: cornflowerblue;
+  border: 0px none cornflowerblue;
+  border-radius: 4.5px;
+  color: white;
+  height: 45px;
+  font-weight: bold;
+}
+
+.signupFormBtn button:hover{
+  cursor: pointer;
+  opacity: 0.7;
+}
+
+.generalForm{
+  border: 1.5px solid black;
+  width: 20%;
+  width: 50vh;
+}
+
+.generalForm label, .generalForm input, .generalForm button{
+  margin: 20px;
+  display: block;
+}
+
+.generalForm input{
+  width: 90.75%;
+  height: 45px;
+  border-radius: 4.5px;
+  border: 1.15px solid black;
+}
+
+.generalFormBtns{
+  display: flex;
+  justify-content: space-between;
+}
+
+.activityForm{
+  border: 1.5px solid black;
+  width: 20%;
+  width: 50vh;
+}
+
+.activityForm label, .activityForm input, .activityForm button{
+  margin: 20px;
+  display: block;
+}
+
+.activityForm input{
+  width: 90%;
+  height: 45px;
+  border-radius: 4.5px;
+  border: 1.15px solid black;
+}
+
+.activityFormBtns{
+  display: flex;
+  justify-content: space-between;
+}
+
+
+.signupForm{
+  border: 1.5px solid black;
+  width: 20%;
+  height: 35vh;
+  width: 50vh;
+}
+
+.signupForm label, .signupForm input, .signupForm button{
+  margin: 20px;
+  display: block;
+}
+
+.signupForm input{
+  width: 90%;
+  height: 45px;
+  border-radius: 4.5px;
+  border: 1.15px solid black;
+}
+
+.signupFormBtns{
+  display: flex;
+  justify-content: space-between;
+}
+
+.signupFormBtns button{
+  width: 45%;
+  background-color: cornflowerblue;
+  border: 0px none cornflowerblue;
+  border-radius: 4.5px;
+  color: white;
+  height: 45px;
+  font-weight: bold;
+}
+
+.signupFormBtns button:hover{
+  cursor: pointer;
+  opacity: 0.7;
+}
+
+.activityBtn{
+  background-color: rgb(241, 241, 241);
+  text-align: center;
+  color: black;
+  border: 2px solid rgb(114, 112, 112);
+  width: 92%;
+}
+
+.activityBtn p{
+  font-size: 12px;
+}
+
+.activityBtn:hover{
+  border-color: dodgerblue;
+  h4{
+    color: dodgerblue;
+    font-size: 18px;
+  }
+  opacity: 0.7;
+  cursor: pointer;
+}
+
+.accountForm{
+  border: 1.5px solid black;
+  width: 20%;
+  width: 50vh;
+}
+
+.accountForm label, .accountForm input, .accountForm button{
+  margin: 20px;
+  display: block;
+}
+
+.accountForm input{
+  width: 90%;
+  height: 45px;
+  border-radius: 4.5px;
+  border: 1.15px solid black;
+}
+
+.accountFormBtns{
+  display: flex;
+  justify-content: space-between;
+}
+
+.passwordLabel p{
+  font-size: 14px;
+  font-weight: normal;
+}
+
+label{
+  font-weight: bold;
+}
