@@ -13,7 +13,8 @@
     "client:dev": "cd client && npm run dev",
     "build": "concurrently \"cd server && npm run build\" \"cd client && npm run build\"",
     "seed": "cd server && npm run seed",
-    "render-build": "npm install && npm run build"
+    "render-build": "npm install && npm run build",
+    "clean": "rm -fr node_modules && cd client && rm -fr node_modules dist && cd ../server && rm -fr node_modules dist"
   },
   "keywords": [],
   "author": "",
