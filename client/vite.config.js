@@ -11,7 +11,7 @@ export default defineConfig({
     // We are pointing our Vite client-side development server to proxy API requests to our server-side Node server at port 3001.
     // Without this line, API calls would attempt to fallback and query for data from the current domain: localhost:3000
     proxy: {
-      '/graphql': {
+      '/api': {
         target: 'http://localhost:3001',
         changeOrigin: true,
         secure: false,
