@@ -5,7 +5,7 @@ export const getAllRecipes = async (req, res) => {
     if (!recipes) return res.status(404).json({message: 'No recipes saved yet'})
     res.json(recipes)
 }
-export const getRecipeById = async (req, res) => {
+export const getRecipe = async (req, res) => {
     const recipe = await Recipe.findById(req.params.id)
     if (!recipe) return res.status({ message: 'Recipe not found'})
     res.json(recipe)
