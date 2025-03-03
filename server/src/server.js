@@ -1,5 +1,5 @@
 import app from './app.js'
-import { db } from './config/connection.js'
+import db from './config/connection.js';
 
 db();
 
