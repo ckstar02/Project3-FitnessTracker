@@ -64,5 +64,4 @@ UserSurveySchema.virtual('numSavedRecipe').get(() => {
   return this.savedRecipes?.length || 0;
 });
 
-const UserSurvey = mongoose.model('UserSurvey', UserSurveySchema);
-export default UserSurvey;
+export default mongoose.model('UserSurvey', UserSurveySchema);

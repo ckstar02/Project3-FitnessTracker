@@ -14,6 +14,8 @@ const dailyGoalsSchema = new mongoose.Schema({
         type: Number,
         required: true,
     }
+}, {
+    timestamps: true,  
 })
 
 export default mongoose.model('DailyGoals', dailyGoalsSchema)
