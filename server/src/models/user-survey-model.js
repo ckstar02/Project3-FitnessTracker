@@ -26,31 +26,10 @@ const UserSurveySchema = new Schema(
       required: true,
       trim: true
     },
-    heightcm: {
+    heightft: {
       type: Number,
       required: true,
       trim: true
-    },
-    caloricIntake: {
-      type: Number,
-      required: true,
-      trim: true
-    },
-    email: {
-      type: String,
-      unique: true,
-      required: true,
-      validate: {
-        validator: (e) => /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(e),
-        message: 'Please enter a valid email',
-      },
-      trim: true
-    },
-    password: {
-      type: String,
-      required: true,
-      unique: true,
-      minlength: 8
     },
     dailyGoals: [
       {
@@ -64,12 +43,13 @@ const UserSurveySchema = new Schema(
         ref: 'SavedRecipes'
     }
     ]
+  },{
+    timestamps: true,
   },
   {
     toJSON: {
       virtuals: true
     },
-    id: false,
   }
 );
 
