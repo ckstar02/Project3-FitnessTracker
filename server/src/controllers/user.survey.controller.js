@@ -1,4 +1,4 @@
-import UserSurvey from "../models/user-survey-model";
+import UserSurvey from "../models/user-survey-model.js";
 
 
 export const getAllSurveys = async (req, res) => {

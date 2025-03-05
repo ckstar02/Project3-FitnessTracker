@@ -1,6 +1,6 @@
 import { Router } from 'express';
-import { authRequired } from '../middlewares/validateToken';
-import { getAllRecipes, getRecipe, addRecipe, updateRecipe, deleteRecipe } from '../controllers/saved.recipes.controller';
+import { authRequired } from '../middlewares/validateToken.js';
+import { getAllRecipes, getRecipe, addRecipe, updateRecipe, deleteRecipe } from '../controllers/saved.recipes.controller.js';
 
 const router = Router()
 

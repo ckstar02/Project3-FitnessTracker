@@ -1,4 +1,4 @@
-import DailyGoals from '../models/daily-goals-model'
+import DailyGoals from '../models/daily-goals-model.js'
 
 export const getAllGoals = async (req, res) => {
     const goals = await DailyGoals.find()

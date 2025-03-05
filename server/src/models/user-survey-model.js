@@ -34,13 +34,13 @@ const UserSurveySchema = new Schema(
     dailyGoals: [
       {
         type: Schema.Types.ObjectId,
-        ref: 'DaylyGoals'
+        ref: 'DailyGoals'
     }
     ],
     savedRecipes: [
       {
         type: Schema.Types.ObjectId,
-        ref: 'SavedRecipes'
+        ref: 'Recipe'
     }
     ]
   },{
