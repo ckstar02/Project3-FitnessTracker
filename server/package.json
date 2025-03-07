@@ -15,7 +15,7 @@
       "src"
     ],
     "ext": "ts,json,js",
-    "exec": "npx tsc && npm run seed && node dist/server.js"
+    "exec": "npm run start && npm run seed && node dist/server.js"
   },
   "keywords": [],
   "author": "",
