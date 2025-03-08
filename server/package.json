@@ -5,8 +5,7 @@
   "main": "server.js",
   "type": "module",
   "scripts": {
-    "start": "node src/server.js",
-    "dev": "nodemon src/server.js",
+    "start": "cd src && node server.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "seed": "node src/seeds/seed.js"
   },
@@ -21,19 +20,15 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@apollo/server": "^4.10.4",
     "bcrypt": "^5.1.1",
     "cookie-parser": "^1.4.7",
     "express": "^4.19.2",
-    "graphql": "^16.8.2",
-    "graphql-tag": "^2.12.6",
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.4.1",
-    "morgan": "^1.10.0"
+    "morgan": "^1.10.0",
+    "bcryptjs": "^3.0.2"
   },
   "devDependencies": {
-    "@types/express": "^4.17.21",
-    "@types/node": "^20.12.7",
     "dotenv": "^16.4.5"
   }
 }

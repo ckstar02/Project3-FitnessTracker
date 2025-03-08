@@ -24,6 +24,32 @@ export const createSurvey = async (req, res) => {
     })
     const savedSurvey = await newSurvey.save()
     res.json(savedSurvey)
+
+    //   const {
+    //     firstName, lastName,
+    //     age, weight, height, activityLvl, calories,
+    //     email, password
+    //   } = req.body;
+    
+    //   if (!firstName || lastName || age || weight || height || activityLvl || calories || email || password){
+    //     res.status(400).json({ message: 'All fields are required' });
+    //   }
+    
+    //   const hashedPassword = await bcrypt(password, 10);
+    //   try {
+    //     const user = await User.create({ firstName, lastName,
+    //        age, weight, height, calories, 
+    //        email, hashedPassword,
+    //       dailyGoals: [],
+    //       savedRecipes: []
+    //       });
+          
+    //       await user.save();
+    //       res.status(201).json(user);
+    //   } catch (err) {
+    //     res.status(500).json({ message: err.message });
+    //   }
+    // };
 }
 
 export const deleteSurvey = async (req, res) => {

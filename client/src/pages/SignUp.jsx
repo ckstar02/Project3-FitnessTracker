@@ -10,6 +10,7 @@ export default function SignUp(){
   const [accountForm, setAccountForm] = useState(false);
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
+  const [gender, setGender] = useState('');
   const [age, setAge] = useState();
   const [weight, setWeight] = useState();
   const [heightFt, setHeightFt] = useState();
@@ -39,10 +40,59 @@ export default function SignUp(){
     setAccountForm(true);
   }
 
-  function accountFormSubmit(e){
+  async function accountFormSubmit(e){
     e.preventDefault();
 
-    navigate('/login');
+    const heightCm = (heightFt * 30.48) + (heightIn * 2.54);
+    const weightKg = weight / 2.205;
+    
+    let BMR = 0;
+    if (gender === 'Male'){
+      BMR = 88.362 + (13.397 * weightKg) + (4.799 * heightCm) - (5.677 * age);
+    } else if(gender === 'Female'){
+      BMR = 447.593 + (9.247 * weightKg) + (3.098 * heightCm) - (4.330 * age);
+    }
+
+    let TDEE = BMR;
+    if (activityLvl === "Not Very Active"){
+      TDEE = TDEE * 1.2;
+    } else if (activityLvl === "Partially Active"){
+      TDEE = TDEE * 1.375;
+    } else if (activityLvl === "Active"){
+      TDEE = TDEE * 1.55;
+    } else{
+      TDEE = TDEE * 1.725;
+    }
+
+    const data = {
+      firstname: firstName,
+      lastname: lastName,
+      age: age,
+      gender: gender,
+      weightKg: weightKg,
+      heightCm: heightCm,
+      caloricIntake: TDEE,
+      email: email,
+      password: password
+    }
+
+    try {
+      const response = await fetch('', {
+        method: 'POST',
+        headers: { 'Context-Type': 'application/json'},
+        body: JSON.stringify(data)
+      });
+
+      if (!response.ok){
+        const err = await response.json();
+        console.error(err.error || "There was an issue creating your account.");
+        return;
+      };
+
+      navigate('/login');
+    } catch (err) {
+      console.error('Error creating your account: ' +err.message);
+    }
   }
 
   function backBtn(){
@@ -114,6 +164,25 @@ export default function SignUp(){
             name="age"
             onChange={(e) => setAge(e.target.value)}
           />
+
+          <div>
+            <div>
+              <input 
+                type="radio"
+                name="gender"
+                onChange={() => setGender('Male')}
+              />
+              <p>Male</p>
+            </div>
+            <div>
+              <input 
+                type="radio"
+                name="gender"
+                onChange={() => setGender('Female')}
+              />
+              <p>Female</p>
+            </div>
+          </div>
   
           <label>
             Enter your weight in pounds
