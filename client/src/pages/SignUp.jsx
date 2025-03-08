@@ -11,10 +11,10 @@ export default function SignUp(){
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [gender, setGender] = useState('');
-  const [age, setAge] = useState();
-  const [weight, setWeight] = useState();
-  const [heightFt, setHeightFt] = useState();
-  const [heightIn, setHeightIn] = useState();
+  const [age, setAge] = useState(0);
+  const [weight, setWeight] = useState(0);
+  const [heightFt, setHeightFt] = useState(0);
+  const [heightIn, setHeightIn] = useState(0);
   const [activityLvl, setActivityLvl] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -135,10 +135,15 @@ export default function SignUp(){
             onChange={(e) => setLastName(e.target.value)}
           />
 
+          {console.log(firstName + lastName)}
+
           <div className={styles.signupFormBtn}>
-          <button type="submit">
-            Next
-          </button>
+             <button type="submit" disabled={
+              firstName === '' ||
+              lastName === ''
+             }>
+              Next
+             </button>
           </div>
         </form>
       </div>
@@ -165,25 +170,29 @@ export default function SignUp(){
             onChange={(e) => setAge(e.target.value)}
           />
 
-          <div>
-            <div>
+          <div className={styles.radioInputs}>
+            <label>
               <input 
                 type="radio"
                 name="gender"
-                onChange={() => setGender('Male')}
+                onClick={() => {
+                  setGender('Male');
+                }}
               />
-              <p>Male</p>
-            </div>
-            <div>
+              Male
+            </label>
+            <label>
               <input 
                 type="radio"
                 name="gender"
-                onChange={() => setGender('Female')}
+                onClick={() => {
+                  setGender('Female');
+                }}
               />
-              <p>Female</p>
-            </div>
+              Female
+            </label>
           </div>
-  
+
           <label>
             Enter your weight in pounds
           </label>
@@ -216,7 +225,13 @@ export default function SignUp(){
           <button onClick={backBtn}>
             Back
           </button>
-          <button type="submit">
+          <button type="submit" disabled={
+            age < 18 ||
+            gender === '' ||
+            weight < 100 ||
+            heightFt < 4 ||
+            heightIn < 0
+          }>
             Next
           </button>
           </div>
@@ -293,7 +308,6 @@ export default function SignUp(){
           <label className={styles.passwordLabel}>
             Password
             <p>Must be at least 8 characters long</p>
-            <p>Must include at least 1 number</p>
           </label>
           <input 
             type="password"
@@ -309,7 +323,10 @@ export default function SignUp(){
           }}>
             Back
           </button>
-          <button type="submit">
+          <button type="submit" disabled={
+            !/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email) ||
+            password.length < 8
+          }>
             Sign Up
           </button>
           </div>
