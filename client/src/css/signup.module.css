@@ -219,3 +219,33 @@
 label{
   font-weight: bold;
 }
+
+@media (max-width: 480px){
+  .nameForm{
+    height: 55%;
+  }
+  .nameForm input{
+    width: 86%
+  }
+  .nameForm button{
+    width: 88%;
+  }
+
+  .generalForm input{
+    width: 87%;
+  }
+  .radioInputs label{
+    width: 100px;
+    text-align: center;
+  }
+  .radioInputs input{
+    width: 20px;
+    margin: 0;
+    margin-bottom: 10px;
+    height: 20px;
+  }
+
+  .accountForm input{
+    width: 87%;
+  }
+}

@@ -135,8 +135,6 @@ export default function SignUp(){
             onChange={(e) => setLastName(e.target.value)}
           />
 
-          {console.log(firstName + lastName)}
-
           <div className={styles.signupFormBtn}>
              <button type="submit" disabled={
               firstName === '' ||

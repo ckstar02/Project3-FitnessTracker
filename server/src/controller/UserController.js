@@ -2,11 +2,13 @@ import express from 'express';
 // import dotenv from 'dotenv';
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
+import cors from 'cors';
 
 import { User } from "../models/index.js";
 
 const app = express();
 app.use(express.json());
+app.use(cors({ origin: 'http://localhost:3000' }));
 
 // Get all Users
 export const getAllUsers = async (req, res) => {
@@ -35,29 +37,35 @@ export const getUserById = async (req, res) => {
 
 // Create User
 export const createUser = async (req, res) => {
+  console.log("route hit");
+
   const {
     firstName, lastName,
-    age, weight, height, activityLvl, calories,
+    age, gender, weightKg, heightCm, caloricIntake,
     email, password
   } = req.body;
 
-  if (!firstName || lastName || age || weight || height || activityLvl || calories || email || password){
-    res.status(400).json({ message: 'All fields are required' });
+  if (!firstName || !lastName || !age || !weightKg || !heightCm || !caloricIntake || !email || !password){
+    return res.status(400).json({ message: 'All fields are required' });
   }
 
-  const hashedPassword = await bcrypt(password, 10);
+  const hashedPassword = await bcrypt.hash(password, 10);
   try {
+    console.log("User Model:", User);
     const user = await User.create({ firstName, lastName,
-       age, weight, height, calories, 
-       email, hashedPassword,
+       age, gender, weightKg, heightCm, caloricIntake, 
+       email,
+      password: hashedPassword,
       dailyGoals: [],
       savedRecipes: []
       });
+      console.log("User model updated:", user);
+      console.log(user.dailyGoals);
+
       
-      await user.save();
       res.status(201).json(user);
   } catch (err) {
-    res.status(500).json({ message: err.message });
+    return res.status(500).json({ message: err.message });
   }
 };
 
