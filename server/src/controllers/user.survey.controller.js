@@ -1,5 +1,5 @@
-import UserSurvey from "../models/user-survey-model.js";
-
+import { User } from "../models/User.js";
+import bcrypt from 'bcrypt';
 
 export const getAllSurveys = async (req, res) => {
     const surveys = await UserSurvey.find()
@@ -14,42 +14,29 @@ export const getSurvey = async (req, res) => {
 }
 
 export const createSurvey = async (req, res) => {
-    const { firstname, lastname, age, weightlbs, heightft } = req.body
-    const newSurvey = new UserSurvey({
-        firstname,
-        lastname,
-        age,
-        weightlbs,
-        heightft
-    })
-    const savedSurvey = await newSurvey.save()
-    res.json(savedSurvey)
+    const {
+        firstName, lastName, age, gender, weightKg, heightCm, caloricIntake, email, password 
+    } = req.body;
 
-    //   const {
-    //     firstName, lastName,
-    //     age, weight, height, activityLvl, calories,
-    //     email, password
-    //   } = req.body;
-    
-    //   if (!firstName || lastName || age || weight || height || activityLvl || calories || email || password){
-    //     res.status(400).json({ message: 'All fields are required' });
-    //   }
-    
-    //   const hashedPassword = await bcrypt(password, 10);
-    //   try {
-    //     const user = await User.create({ firstName, lastName,
-    //        age, weight, height, calories, 
-    //        email, hashedPassword,
-    //       dailyGoals: [],
-    //       savedRecipes: []
-    //       });
-          
-    //       await user.save();
-    //       res.status(201).json(user);
-    //   } catch (err) {
-    //     res.status(500).json({ message: err.message });
-    //   }
-    // };
+    if (!firstName || !lastName || !age || !gender || !weightKg || !heightCm || !caloricIntake || !email || !password){
+        res.status(400).json({ message: 'All fields are required.' });
+    }
+
+    try{
+        const hashedPassword = await bcrypt(password, 10);
+
+        const user = await User.create({
+            firstName, lastName,
+            age, weightKg, heightCm, caloricIntake,
+            email, hashedPassword,
+            dailyGoals: [],
+            savedRecipes: []
+        });
+
+        res.status(201).json(user);
+    } catch (err){
+        res.status(500).json({ message: err.message });
+    }
 }
 
 export const deleteSurvey = async (req, res) => {

@@ -16,6 +16,6 @@ app.use(cookieParser());
 app.use('/api', authRoutes);
 app.use('/api', goalsRoutes);
 app.use('/api', recipesRoutes);
-app.use('//api', surveyRoutes)
+app.use('/api', surveyRoutes)
 
 export default app;

@@ -77,7 +77,7 @@ export default function SignUp(){
     }
 
     try {
-      const response = await fetch('', {
+      const response = await fetch('/api/surveys', {
         method: 'POST',
         headers: { 'Context-Type': 'application/json'},
         body: JSON.stringify(data)

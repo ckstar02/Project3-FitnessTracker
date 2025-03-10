@@ -29,44 +29,44 @@ export default function recipieSearch(){
                                 <textarea id='keywordResponse'>Type one or more keywords</textarea>
                             </div>
                             <div id="allergiesBox">
-                                    <input id='celery-free' type="checkbox">Celery-Free</input>
-                                    <input id='crustacean-free' type="checkbox">Crustacean-Free</input>
-                                    <input id='dairy-free' type="checkbox">Dairy-Free</input>
-                                    <input id='egg-free' type="checkbox">Egg-Free</input>
-                                    <input id='fish-free' type="checkbox">Fish-Free</input>
+                                    <input id='celeryFree' type="checkbox">Celery-Free</input>
+                                    <input id='crustaceanFree' type="checkbox">Crustacean-Free</input>
+                                    <input id='dairyFree' type="checkbox">Dairy-Free</input>
+                                    <input id='eggFree' type="checkbox">Egg-Free</input>
+                                    <input id='fishFree' type="checkbox">Fish-Free</input>
                                 <br/>
-                                    <input id='gluten-free' type="checkbox">Gluten-Free</input>
-                                    <input id='lupine-free' type="checkbox">Lupine-Free</input>
-                                    <input id='mustard-free' type="checkbox">Mustard-Free</input>
-                                    <input id='peanut-free' type="checkbox">Peanut-Free</input>
-                                    <input id='sesame-free' type="checkbox">Sesame-Free</input>
+                                    <input id='glutenFree' type="checkbox">Gluten-Free</input>
+                                    <input id='lupineFree' type="checkbox">Lupine-Free</input>
+                                    <input id='mustardFree' type="checkbox">Mustard-Free</input>
+                                    <input id='peanutFree' type="checkbox">Peanut-Free</input>
+                                    <input id='sesameFree' type="checkbox">Sesame-Free</input>
                                 <br/>
-                                    <input id='shellfish-free' type="checkbox">Shellfish-Free</input>
-                                    <input id='soy-free' type="checkbox">Soy-Free</input>
-                                    <input id='tree-nut-free' type="checkbox">Tree-Nut-Free</input>
-                                    <input id='wheat-free' type="checkbox">Wheat-Free</input>
+                                    <input id='shellfishFree' type="checkbox">Shellfish-Free</input>
+                                    <input id='soyFree' type="checkbox">Soy-Free</input>
+                                    <input id='treeNutFree' type="checkbox">Tree-Nut-Free</input>
+                                    <input id='wheatFree' type="checkbox">Wheat-Free</input>
                             </div>
                             <div id="dietsBox">
-                                    <input id='alcohol-free' type="checkbox">Alcohol-Free</input>
+                                    <input id='alcoholFree' type="checkbox">Alcohol-Free</input>
                                     <input id='balanced' type="checkbox">Balanced</input>
-                                    <input id='high-fiber' type="checkbox">High-Fiber</input>
-                                    <input id='high-protien' type="checkbox">High-Protien</input>
+                                    <input id='highFiber' type="checkbox">High-Fiber</input>
+                                    <input id='highProtien' type="checkbox">High-Protien</input>
                                     <input id='keto' type="checkbox">Keto</input>
                                 <br/>
-                                    <input id='kidney-friendly' type="checkbox">Kidney Friendly</input>
+                                    <input id='kidneyFriendly' type="checkbox">Kidney Friendly</input>
                                     <input id='kosher' type="checkbox">Kosher</input>
-                                    <input id='low-carb' type="checkbox">Low-Carb</input>
-                                    <input id='low-fat' type="checkbox">Low-Fat</input>
-                                    <input id='low-potassium' type="checkbox">Low Potassium</input>
+                                    <input id='lowCarb' type="checkbox">Low-Carb</input>
+                                    <input id='lowFat' type="checkbox">Low-Fat</input>
+                                    <input id='lowPotassium' type="checkbox">Low Potassium</input>
                                 <br/>
-                                    <input id='low-sodium' type="checkbox">Low-Sodium</input>
-                                    <input id='no-oil-added' type="checkbox">No oil added</input>
+                                    <input id='lowSodium' type="checkbox">Low-Sodium</input>
+                                    <input id='noOilAdded' type="checkbox">No oil added</input>
                                     <input id='paleo' type="checkbox">Paleo</input>
                                     <input id='pescatarian' type="checkbox">Pescatarian</input>
-                                    <input id='pork-free' type="checkbox">Pork-free</input>
+                                    <input id='porkFree' type="checkbox">Pork-free</input>
                                 <br/>    
-                                    <input id='red-meat-free' type="checkbox">Red meat-free</input>
-                                    <input id='sugar-concious' type="checkbox">Sugar-conscious</input>
+                                    <input id='redMeatFree' type="checkbox">Red meat-free</input>
+                                    <input id='sugarConcious' type="checkbox">Sugar-conscious</input>
                                     <input id='vegan' type="checkbox">Vegan</input>
                                     <input id='vegetarian' type="checkbox">Vegetarian</input>
                             </div>
@@ -87,7 +87,7 @@ export default function recipieSearch(){
                                     <input id='carbs' type="checkbox">Carbs</input>
                                     <input id='fiber' type="checkbox">Fiber</input>
                                     <input id='sugars' type="checkbox">Sugars</input>
-                                    <input id='protien' type="checkbox">Protien</input>
+                                    <input id='protein' type="checkbox">Protein</input>
                                 <h3>Micronutrients</h3>
                                     <input id='cloesterol' type="checkbox">Cloesterol</input>
                                     <input id='sodium' type="checkbox">Sodium</input>
@@ -97,19 +97,19 @@ export default function recipieSearch(){
                                 <br/>
                                     <input id='iron' type="checkbox">Iron</input>
                                     <input id='phosphorus' type="checkbox">Phosphorus</input>
-                                    <input id='vitamin-a' type="checkbox">Vitamin A</input>
-                                    <input id='vitamin-c' type="checkbox">Vitamin C</input>
+                                    <input id='vitaminA' type="checkbox">Vitamin A</input>
+                                    <input id='vitaminC' type="checkbox">Vitamin C</input>
                                     <input id='thiamin' type="checkbox">Thiamin (B1)</input>
                                 <br/>
                                     <input id='ribolavin' type="checkbox">Riboflavin (B2)</input>
                                     <input id='niacin' type="checkbox">Niacin (B3)</input>
-                                    <input id='vitamin-b6' type="checkbox">Vitamin B6</input>
+                                    <input id='vitaminB6' type="checkbox">Vitamin B6</input>
                                     <input id='folate' type="checkbox">Folate (Equivalent)</input>
-                                    <input id='vitamin-b12' type="checkbox">Vitamin B12</input>
+                                    <input id='vitaminB12' type="checkbox">Vitamin B12</input>
                                 <br/>
-                                    <input id='vitamin-d' type="checkbox">Vitamin D</input>
-                                    <input id='vitamin-e' type="checkbox">Vitamin E</input>
-                                    <input id='vitamin-k' type="checkbox">Vitamin K</input>
+                                    <input id='vitaminD' type="checkbox">Vitamin D</input>
+                                    <input id='vitaminE' type="checkbox">Vitamin E</input>
+                                    <input id='vitaminK' type="checkbox">Vitamin K</input>
                             </div>
                         </section>
                         <div id='div-right' class='side-div'>

@@ -1,33 +1,33 @@
-import User from '../models/Username-model.js'
+import User from '../models/User.js'
 import bcrypt from 'bcrypt'
 import { createAccessToken } from '../libs/jwt.js'
 
 export const register = async (req, res) => {
-    const {email, password, username} = req.body
+    const {
+        firstName, lastName, age, gender, weightKg, heightCm, caloricIntake, email, password 
+    } = req.body;
 
-    try {
+    if (!firstName || !lastName || !age || !gender || !weightKg || !heightCm || !caloricIntake || !email || !password){
+        res.status(400).json({ message: 'All fields are required.' });
+    }
+    
+    try{
+        const hashedPassword = await bcrypt(password, 10);
+    
+        const user = await UserSurvey.create({
+            firstName, lastName,
+            age, weightKg, heightCm, caloricIntake,
+            email, hashedPassword,
+            dailyGoals: [],
+            savedRecipes: []
+        });
 
-        const passwordHash = await bcrypt.hash(password, 10)
-
-        const newUser = new User({
-            username,
-            email,
-            password: passwordHash
-        })
-        
-        const userSaved = await newUser.save();
-        const token = await createAccessToken({id: userSaved._id})
-
+        const token = await createAccessToken({ id: user._id });
         res.cookie("token", token);
-        res.json({
-            id: userSaved._id,
-            username: userSaved.username,
-            email: userSaved.email,
-            createdAt: userSaved.createdAt,
-            updatedAt: userSaved.updatedAt,
-        })
-    } catch (error) {
-        res.status(500).json({ message: error.message })
+    
+        res.status(200).json(user);
+    } catch (err){
+        res.status(500).json({ message: err.message });
     }
 }
 

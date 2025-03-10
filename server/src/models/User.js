@@ -1,6 +1,6 @@
 import mongoose, { Schema } from 'mongoose';
 
-const UserSurveySchema = new Schema(
+const UserSchema = new Schema(
   {
     firstname: {
       type: String,
@@ -81,14 +81,14 @@ const UserSurveySchema = new Schema(
 );
 
 //Virtual for dailyGoals
-UserSurveySchema.virtual('numDailyGoals').get(() => {
+UserSchema.virtual('numDailyGoals').get(() => {
   return this.dailyGoals?.length || 0;
 });
 
 // Virtual for savedRecipes
-UserSurveySchema.virtual('numSavedRecipe').get(() => {
+UserSchema.virtual('numSavedRecipe').get(() => {
   return this.savedRecipes?.length || 0;
 });
 
-const User = mongoose.model('UserSurvey', UserSurveySchema);
+const User = mongoose.model('User', UserSchema);
 export default User;
