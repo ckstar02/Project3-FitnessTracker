@@ -1,4 +1,4 @@
-import User from '../models/User.js'
+import { User } from '../models/index.js'
 import bcrypt from 'bcrypt'
 import { createAccessToken } from '../libs/jwt.js'
 
@@ -7,8 +7,9 @@ export const register = async (req, res) => {
         firstName, lastName, age, gender, weightKg, heightCm, caloricIntake, email, password 
     } = req.body;
 
+    console.log(req.body);
     if (!firstName || !lastName || !age || !gender || !weightKg || !heightCm || !caloricIntake || !email || !password){
-        res.status(400).json({ message: 'All fields are required.' });
+        return res.status(400).json({ message: 'All fields are required.' });
     }
     
     try{
@@ -25,9 +26,9 @@ export const register = async (req, res) => {
         const token = await createAccessToken({ id: user._id });
         res.cookie("token", token);
     
-        res.status(200).json(user);
+        return res.status(200).json(user);
     } catch (err){
-        res.status(500).json({ message: err.message });
+        return res.status(500).json({ message: err.message });
     }
 }
 

@@ -1,6 +1,6 @@
 import { Router } from "express";
-import { authRequired } from "../middlewares/validateToken.js";
-import { getAllSurveys, getSurvey, createSurvey, updateSurvey, deleteSurvey } from "../controllers/user.survey.controller.js";
+import { authRequired } from "../../middlewares/validateToken.js";
+import { getAllSurveys, getSurvey, createSurvey, updateSurvey, deleteSurvey } from "../../controllers/user.survey.controller.js";
 
 const router = Router()
 
