@@ -1,6 +1,6 @@
 import { Router } from 'express'
-import { getAllPersonalGoals, getPersonalGoal, createPersonalGoal, deletePersonalGoal, updatePersonalGoal } from '../../controllers/personal.goal.controller'
-import { authRequired } from '../../middlewares/validateToken'
+import { getAllPersonalGoals, getPersonalGoal, createPersonalGoal, deletePersonalGoal, updatePersonalGoal } from '../../controllers/personal.goal.controller.js'
+import { authRequired } from '../../middlewares/validateToken.js'
 
 
 const router = Router();

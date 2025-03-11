@@ -1,6 +1,6 @@
 import express from 'express';
 // import dotenv from 'dotenv';
-import bcrypt from 'bcryptjs';
+import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 // import cors from 'cors';
 
