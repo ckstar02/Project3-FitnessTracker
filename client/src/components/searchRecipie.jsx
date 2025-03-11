@@ -1,4 +1,5 @@
-import React, {useState} from 'react';
+import React, {useEffect, useData} from 'react';
+import { useLocation } from 'react-router-dom';
 import recipieSearch from '../pages/recipieSearch';
 
 export const searchRecipie = () => {
@@ -68,6 +69,8 @@ export const searchRecipie = () => {
     const vitaminD = document.getElementById('vitaminD');
     const vitaminE = document.getElementById('vitaminE');
     const vitaminK = document.getElementById('vitaminK');
+    const caloriesMAX = document.getElementById('caloriesMAX');
+    const caloriesMIN = document.getElementById('caloriesMIN');
     
     if (celeryFree.checked) {
         apirequest += '&health=celery-free';
@@ -169,111 +172,63 @@ export const searchRecipie = () => {
         apirequest = apirequest + '&health=vegetarian';
     }
 
-    if (calories-min.value != "" && calories-max.value != ""){
-        apirequest = apirequest + `&calories=${calories-min.value}-${calories-max.value}`;
-    } else if (calories-min.value != ""){
-        apirequest = apirequest + `&calories=${calories-min.value}-100`;
-    } else if (calories-max.value != ""){
-        apirequest = apirequest + `&calories=1-${calories-max.value}`;
+    if (caloriesMIN.value != "" && caloriesMAX.value != ""){
+        apirequest = apirequest + `&calories=${caloriesMIN.value}-${caloriesMAX.value}`;
+    } else if (caloriesMIN.value != ""){
+        apirequest = apirequest + `&calories=${caloriesMIN.value}-100`;
+    } else if (caloriesMAX.value != ""){
+        apirequest = apirequest + `&calories=1-${caloriesMAX.value}`;
     }
-
-    if(fat.checked){
-        apirequest = apirequest + '&health';
-    }
-    if(saturated.checked){
-        apirequest = apirequest + '&health';
-    }
-    if(trans.checked){
-        apirequest = apirequest + '&health';
-    }
-    if(monounsaturated.checked){
-        apirequest = apirequest + '&health';
-    }
-    if(polyunsaturated.checked){
-        apirequest = apirequest + '&health';
-    }
-    if(carbs.checked){
-        apirequest = apirequest + '&health';
-    }
-    if(fiber.checked){
-        apirequest = apirequest + '&health';
-    }
-    if(sugars.checked){
-        apirequest = apirequest + '&health';
-    }
-    if(protein.checked){
-        apirequest = apirequest + '&health';
-    }
-    if(cloesterol.checked){
-        apirequest = apirequest + '&';
-    }
-    if(sodium.checked){
-        apirequest = apirequest + '&';
-    }
-    if(calcium.checked){
-        apirequest = apirequest + '&';
-    }
-    if(magnesium.checked){
-        apirequest = apirequest + '&';
-    }
-    if(potassium.checked){
-        apirequest = apirequest + '&';
-    }
-    if(iron.checked){
-        apirequest = apirequest + '&';
-    }
-    if(phosphorus.checked){
-        apirequest = apirequest + '&';
-    }
-    if(vitaminA.checked){
-        apirequest = apirequest + '&';
-    }
-    if(vitaminC.checked){
-        apirequest = apirequest + '&';
-    }
-    if(thiamin.checked){
-        apirequest = apirequest + '&';
-    }
-    if(ribolavin.checked){
-        apirequest = apirequest + '&';
-    }
-    if(niacin.checked){
-        apirequest = apirequest + '&';
-    }
-    if(vitaminB6.checked){
-        apirequest = apirequest + '&';
-    }
-    if(folate.checked){
-        apirequest = apirequest + '&';
-    }
-    if(vitaminB12.checked){
-        apirequest = apirequest + '&';
-    }
-    if(vitaminD.checked){
-        apirequest = apirequest + '&';
-    }
-    if(vitaminE.checked){
-        apirequest = apirequest + '&';
-    }
-    if(vitaminK.checked){
-        apirequest = apirequest + '&';
-    }
-    fetch(apirequest)
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Network response was not ok');
+    useEffect(() => {
+        const fetchData = async() => {
+            try{
+                const response = await fetch(apirequest);
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                const jsonData = await response.json();
+                setData(jsonData);
+            } catch (error) {
+                setError(error);
+            } finally {
+                setLoading(false);
             }
-            return response.json();
-        })
-        .then (data => {
-            setData(data);
-            setLoading(false);
-        })
-        .catch(error => {
-            setError(error);
-            setLoading(false);
-        });
-    return{
-        
+        };
+        fetchData();
+    }, []);
+
+    if (loading) {
+        return <div>Loading, Please Wait...</div>;
     }
+    if (error) {
+        return <div>Error: {error.message}</div>;
+    }
+    return (
+        <div>
+            <h1>Search Results:</h1>
+            <p>Showing results from {data.from} to {data.to} out of {data.count} total results.</p>
+            <div>
+                <h2>Recipies:</h2>
+                <ul>
+                    {data.hits.map((item, index) => {
+                        const recipe = item.recipe;
+                        const thumbnailUrl = recipe.images.THUMBNAIL.url;
+                        const label = recipe.label;
+                        const shareAs = recipe.shareAs;
+                        return (
+                            <li key={index}>
+                                <h3>{label}</h3>
+                                <img src={thumbnailUrl} alt={label} />
+                                <a href={shareAs} target="_blank" rel="noopener noreferrer">View Recipe </a>
+                                <button onClick={test}>Save</button>
+                            </li>
+                        );
+                    })}
+                </ul>
+            </div>
+            {data._links && data._links.next && (
+                <a href={data._links.next.href}>{data._links.next.title}</a>
+            )}
+        </div>
+    );
 };

@@ -4,21 +4,21 @@ import { createAccessToken } from '../libs/jwt.js'
 
 export const register = async (req, res) => {
     const {
-        firstName, lastName, age, gender, weightKg, heightCm, caloricIntake, email, password 
+        firstname, lastname, age, gender, weightKg, heightCm, caloricIntake, email, password 
     } = req.body;
 
-    console.log(req.body);
-    if (!firstName || !lastName || !age || !gender || !weightKg || !heightCm || !caloricIntake || !email || !password){
+    if (!firstname || !lastname || !age || !gender || !weightKg || !heightCm || !caloricIntake || !email || !password){
         return res.status(400).json({ message: 'All fields are required.' });
     }
     
     try{
-        const hashedPassword = await bcrypt(password, 10);
-    
-        const user = await UserSurvey.create({
-            firstName, lastName,
-            age, weightKg, heightCm, caloricIntake,
-            email, hashedPassword,
+        const hashedPassword = await bcrypt.hash(password, 10);
+        
+        const user = await User.create({
+            firstname, lastname,
+            age, gender, weightKg, heightCm, caloricIntake,
+            email, 
+            password: hashedPassword,
             dailyGoals: [],
             savedRecipes: []
         });
@@ -33,17 +33,15 @@ export const register = async (req, res) => {
 }
 
 export const login = async (req, res) => {
-    const {email, password} = req.body
+    const { email, password } = req.body
 
     try {
-
-
-        const userFound = await User.findOne({email})
+        const userFound = await User.findOne({ email })
 
         if (!userFound)
             return res.status(400).json({ message: "User not found" }); 
 
-        const isMatch = await bcrypt.compare(password, userFound.password);
+        const isMatch = bcrypt.compare(password, userFound.password);
 
         if (!isMatch)
             return res.status(400).json({ message: "Incorrect password" })
@@ -51,15 +49,9 @@ export const login = async (req, res) => {
         const token = await createAccessToken({id: userFound._id})
 
         res.cookie("token", token);
-        res.json({
-            id: userFound._id,
-            username: userFound.username,
-            email: userFound.email,
-            createdAt: userFound.createdAt,
-            updatedAt: userFound.updatedAt,
-        })
+        return res.json({ message: 'Successfully Logged In!' });
     } catch (error) {
-        res.status(500).json({ message: error.message })
+        return res.status(500).json({ message: error.message })
     }
 }
 

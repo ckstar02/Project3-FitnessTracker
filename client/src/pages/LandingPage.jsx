@@ -15,7 +15,15 @@ export default function LandingPage(){
         <p>Conquer your fitness goals with this all in one fitness tracker.</p>
         <button className={styles.signupBtn} onClick={navToSignUp}>Start Today</button>
       </div>
-      <p>dwaudawo  diaowd iwa knak dwaid; adad awda; da da dwd asn dowj an</p>
+      {/* <p>dwaudawo  diaowd iwa knak dwaid; adad awda; da da dwd asn dowj an</p> */}
+
+      <div className={styles.recipeInfoContainer}>
+        <h1>Have access to millions of healthly recipes on the web</h1>
+      </div>
+
+      <div className={styles.goalInfoContainer}>
+        <h1>Set personal goals you can work towards</h1>
+      </div>
     </div>
   )
 }

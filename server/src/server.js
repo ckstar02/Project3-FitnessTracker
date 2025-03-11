@@ -1,5 +1,11 @@
 import express from 'express';
 import db from './config/connection.js';
+import routes from './routes/app.js';
+
+import morgan from 'morgan';
+import cookieParser from 'cookie-parser';
+
+await db();
 
 const app = express();
 const port = process.env.PORT ? parseInt(process.env.PORT, 10) : 3001;
@@ -20,6 +26,6 @@ if (process.env.NODE_ENV === 'production'){
   });
 }
 
-db.once('open', () => {
-  app.listen(port, () => console.log(`Server running on port ${port}`));
+app.listen(port, () => {
+  console.log(`Server running on port ${port}!`);
 });

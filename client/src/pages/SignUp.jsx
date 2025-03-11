@@ -74,12 +74,12 @@ export default function SignUp(){
       caloricIntake: TDEE,
       email: email,
       password: password
-    }
+    };
 
     try {
-      const response = await fetch('/api/register', {
+      const response = await fetch('/api/auth/register', {
         method: 'POST',
-        headers: { 'Context-Type': 'application/json'},
+        headers: { 'Content-Type': 'application/json'},
         body: JSON.stringify(data)
       });
 

@@ -72,44 +72,9 @@ export default function recipieSearch(){
                             </div>
                             <div id="caloriesBox">
                                 <p>Please provide minimum desired calories per serving. Defalt is 1</p>
-                                <input id='calories-min' type='number'></input> <p>kcal</p>
+                                <input id='caloriesMIN' type='number'></input> <p>kcal</p>
                                 <p>Please provide maximum desired calories per serving. Defalt is 100</p>
-                                <input id='calories-max' type='number'></input> <p>kcal</p>
-                            </div>
-                            <div id="nutrientsBox">
-                                <h3>Macronutrients</h3>
-                                    <input id='fat' type="checkbox">Fat</input>
-                                    <input id='saturated' type="checkbox">Saturated</input>
-                                    <input id='trans' type="checkbox">Trans</input>
-                                    <input id='monounsaturated' type="checkbox">Monounsaurated</input>
-                                    <input id='polyunsaturated' type="checkbox">Polyunsaturated</input>
-                                <br/>
-                                    <input id='carbs' type="checkbox">Carbs</input>
-                                    <input id='fiber' type="checkbox">Fiber</input>
-                                    <input id='sugars' type="checkbox">Sugars</input>
-                                    <input id='protein' type="checkbox">Protein</input>
-                                <h3>Micronutrients</h3>
-                                    <input id='cloesterol' type="checkbox">Cloesterol</input>
-                                    <input id='sodium' type="checkbox">Sodium</input>
-                                    <input id='calcium' type="checkbox">Calcium</input>
-                                    <input id='magnesium' type="checkbox">Magnesium</input>
-                                    <input id='potassium' type="checkbox">Potassium</input>
-                                <br/>
-                                    <input id='iron' type="checkbox">Iron</input>
-                                    <input id='phosphorus' type="checkbox">Phosphorus</input>
-                                    <input id='vitaminA' type="checkbox">Vitamin A</input>
-                                    <input id='vitaminC' type="checkbox">Vitamin C</input>
-                                    <input id='thiamin' type="checkbox">Thiamin (B1)</input>
-                                <br/>
-                                    <input id='ribolavin' type="checkbox">Riboflavin (B2)</input>
-                                    <input id='niacin' type="checkbox">Niacin (B3)</input>
-                                    <input id='vitaminB6' type="checkbox">Vitamin B6</input>
-                                    <input id='folate' type="checkbox">Folate (Equivalent)</input>
-                                    <input id='vitaminB12' type="checkbox">Vitamin B12</input>
-                                <br/>
-                                    <input id='vitaminD' type="checkbox">Vitamin D</input>
-                                    <input id='vitaminE' type="checkbox">Vitamin E</input>
-                                    <input id='vitaminK' type="checkbox">Vitamin K</input>
+                                <input id='caloriesMAX' type='number'></input> <p>kcal</p>
                             </div>
                         </section>
                         <div id='div-right' class='side-div'>

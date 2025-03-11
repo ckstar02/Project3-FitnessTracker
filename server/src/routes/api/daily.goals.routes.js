@@ -1,6 +1,6 @@
 import { Router } from "express";
-import { getAllGoals, getGoal, createGoal, updateGoal, deleteGoal } from "../controllers/daily.goals.controller.js";
-import { authRequired } from "../middlewares/validateToken.js";
+import { getAllGoals, getGoal, createGoal, updateGoal, deleteGoal } from "../../controllers/daily.goals.controller.js";
+import { authRequired } from "../../middlewares/validateToken.js";
 
 const router = Router();
 

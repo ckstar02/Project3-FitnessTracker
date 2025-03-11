@@ -18,7 +18,7 @@ export const GoalManager = () => {
         newGoals[0].push(subject);
         newGoals[1].push(description);
         setGoals(newGoals);
-
+        
         setSubject('');
         setDescription('');
         setPopupVisible(false);

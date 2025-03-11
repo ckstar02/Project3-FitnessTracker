@@ -2,13 +2,13 @@ import express from 'express';
 // import dotenv from 'dotenv';
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
-import cors from 'cors';
+// import cors from 'cors';
 
 import { User } from "../models/index.js";
 
 const app = express();
 app.use(express.json());
-app.use(cors({ origin: 'http://localhost:3000' }));
+// app.use(cors({ origin: 'http://localhost:3000' }));
 
 // Get all Users
 export const getAllUsers = async (req, res) => {
