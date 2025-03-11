@@ -23,26 +23,22 @@ export default function Header(){
         <h2 id='username'>Username</h2>
       </nav>
 
-      <h1>FitStart</h1>
       <div className={styles.profileContainer}>
-        <p>Ta'Lee</p>
+        <p></p>
         <button onClick={activate}>
         <img src="../../images/blankpfp.png"/>
         </button>
-        {isLoggedIn && isActive?
-          <div className={styles.dropdownActive}>
-            <button>Logout</button>
-          </div>
-        : isActive?
-          <div>
-            <button>Log In</button>
-          </div>
-        : 
-          <div>
-            <button className={styles.dropdown}></button>
-          </div>
-        }
+        <div className={styles.dropdownActive}>
+          <button>Create Account</button>
+          <button>Login</button>
+        </div>
       </div>
+{/* 
+      { isLoggedIn ? 
+          <button>Log Out</button>
+        :
+          <button>Log In</button>
+        } */}
  {/* main */}
     </header>
   )

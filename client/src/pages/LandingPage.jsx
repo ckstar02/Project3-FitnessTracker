@@ -9,6 +9,10 @@ export default function LandingPage(){
   }
 
   return(
+    <>
+    <header className={styles.heading}>
+      <h1>FitStart</h1>
+    </header>
     <div className={styles.container}>
       <h1>Nutrition tracking made easy</h1>
       <div>
@@ -25,5 +29,6 @@ export default function LandingPage(){
         <h1>Set personal goals you can work towards</h1>
       </div>
     </div>
+    </>
   )
 }
