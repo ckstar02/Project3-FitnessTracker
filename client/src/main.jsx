@@ -9,7 +9,7 @@ import Home from "./pages/Home";
 import LandingPage from "./pages/LandingPage";
 import Login from "./pages/Login";
 import SignUp from "./pages/SignUp";
-import personalGoal from "./pages/PersonalGoals";
+import personalGoal from "./pages/personalGoals";
 
 const router = createBrowserRouter([
   {
