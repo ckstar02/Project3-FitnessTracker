@@ -1,6 +1,13 @@
 .container{
   margin: 60px;
-  background-color: deepskyblue;
+}
+
+.container h1{
+  font-size: 40px;
+}
+
+.container p{
+  font-size: 20px;
 }
 
 .container p, .container button{
@@ -20,4 +27,12 @@
 .signupBtn:hover{
   cursor: pointer;
   opacity: 0.7;
+}
+
+.recipeInfoContainer{
+  margin-top: 150px;
+}
+
+.goalInfoContainer{
+  margin-top: 150px;
 }

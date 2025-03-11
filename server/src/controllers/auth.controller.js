@@ -1,48 +1,47 @@
-import User from '../models/Username-model.js'
+import { User } from '../models/index.js'
 import bcrypt from 'bcrypt'
 import { createAccessToken } from '../libs/jwt.js'
 
 export const register = async (req, res) => {
-    const {email, password, username} = req.body
+    const {
+        firstname, lastname, age, gender, weightKg, heightCm, caloricIntake, email, password 
+    } = req.body;
 
-    try {
-
-        const passwordHash = await bcrypt.hash(password, 10)
-
-        const newUser = new User({
-            username,
-            email,
-            password: passwordHash
-        })
+    if (!firstname || !lastname || !age || !gender || !weightKg || !heightCm || !caloricIntake || !email || !password){
+        return res.status(400).json({ message: 'All fields are required.' });
+    }
+    
+    try{
+        const hashedPassword = await bcrypt.hash(password, 10);
         
-        const userSaved = await newUser.save();
-        const token = await createAccessToken({id: userSaved._id})
+        const user = await User.create({
+            firstname, lastname,
+            age, gender, weightKg, heightCm, caloricIntake,
+            email, 
+            password: hashedPassword,
+            dailyGoals: [],
+            savedRecipes: []
+        });
 
+        const token = await createAccessToken({ id: user._id });
         res.cookie("token", token);
-        res.json({
-            id: userSaved._id,
-            username: userSaved.username,
-            email: userSaved.email,
-            createdAt: userSaved.createdAt,
-            updatedAt: userSaved.updatedAt,
-        })
-    } catch (error) {
-        res.status(500).json({ message: error.message })
+    
+        return res.status(200).json(user);
+    } catch (err){
+        return res.status(500).json({ message: err.message });
     }
 }
 
 export const login = async (req, res) => {
-    const {email, password} = req.body
+    const { email, password } = req.body
 
     try {
-
-
-        const userFound = await User.findOne({email})
+        const userFound = await User.findOne({ email })
 
         if (!userFound)
             return res.status(400).json({ message: "User not found" }); 
 
-        const isMatch = await bcrypt.compare(password, userFound.password);
+        const isMatch = bcrypt.compare(password, userFound.password);
 
         if (!isMatch)
             return res.status(400).json({ message: "Incorrect password" })
@@ -50,15 +49,9 @@ export const login = async (req, res) => {
         const token = await createAccessToken({id: userFound._id})
 
         res.cookie("token", token);
-        res.json({
-            id: userFound._id,
-            username: userFound.username,
-            email: userFound.email,
-            createdAt: userFound.createdAt,
-            updatedAt: userFound.updatedAt,
-        })
+        return res.json({ message: 'Successfully Logged In!' });
     } catch (error) {
-        res.status(500).json({ message: error.message })
+        return res.status(500).json({ message: error.message })
     }
 }
 

@@ -17,4 +17,5 @@ const savedRecipes = new mongoose.Schema({
     timestamps: true,
 })
 
-export default mongoose.model('Recipe', savedRecipes)
+const Recipe =  mongoose.model('Recipe', savedRecipes);
+export default Recipe;
