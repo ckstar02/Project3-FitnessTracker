@@ -1,4 +1,4 @@
-import Recipe from '../models/saved-recipes-model.js';
+import { Recipe } from "../models/index.js"
 
 export const getAllRecipes = async (req, res) => {
     const recipes = await Recipe.find()

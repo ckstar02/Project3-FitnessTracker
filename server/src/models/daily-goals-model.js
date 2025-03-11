@@ -16,6 +16,7 @@ const dailyGoalsSchema = new mongoose.Schema({
     }
 }, {
     timestamps: true,  
-})
+});
 
-export default mongoose.model('DailyGoals', dailyGoalsSchema)
+const DailyGoals = mongoose.model('DailyGoals', dailyGoalsSchema);
+export default DailyGoals;

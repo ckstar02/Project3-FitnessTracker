@@ -10,10 +10,11 @@ export default function SignUp(){
   const [accountForm, setAccountForm] = useState(false);
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
-  const [age, setAge] = useState();
-  const [weight, setWeight] = useState();
-  const [heightFt, setHeightFt] = useState();
-  const [heightIn, setHeightIn] = useState();
+  const [gender, setGender] = useState('');
+  const [age, setAge] = useState(0);
+  const [weight, setWeight] = useState(0);
+  const [heightFt, setHeightFt] = useState(0);
+  const [heightIn, setHeightIn] = useState(0);
   const [activityLvl, setActivityLvl] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -39,10 +40,59 @@ export default function SignUp(){
     setAccountForm(true);
   }
 
-  function accountFormSubmit(e){
+  async function accountFormSubmit(e){
     e.preventDefault();
 
-    navigate('/login');
+    const heightCm = (heightFt * 30.48) + (heightIn * 2.54);
+    const weightKg = weight / 2.205;
+    
+    let BMR = 0;
+    if (gender === 'Male'){
+      BMR = 88.362 + (13.397 * weightKg) + (4.799 * heightCm) - (5.677 * age);
+    } else if(gender === 'Female'){
+      BMR = 447.593 + (9.247 * weightKg) + (3.098 * heightCm) - (4.330 * age);
+    }
+
+    let TDEE = BMR;
+    if (activityLvl === "Not Very Active"){
+      TDEE = TDEE * 1.2;
+    } else if (activityLvl === "Partially Active"){
+      TDEE = TDEE * 1.375;
+    } else if (activityLvl === "Active"){
+      TDEE = TDEE * 1.55;
+    } else{
+      TDEE = TDEE * 1.725;
+    }
+
+    const data = {
+      firstname: firstName,
+      lastname: lastName,
+      age: age,
+      gender: gender,
+      weightKg: weightKg,
+      heightCm: heightCm,
+      caloricIntake: TDEE,
+      email: email,
+      password: password
+    };
+
+    try {
+      const response = await fetch('/api/auth/register', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json'},
+        body: JSON.stringify(data)
+      });
+
+      if (!response.ok){
+        const err = await response.json();
+        console.error(err || "There was an issue creating your account.");
+        return;
+      };
+
+      navigate('/login');
+    } catch (err) {
+      console.error('Error creating your account: ' +err.message);
+    }
   }
 
   function backBtn(){
@@ -86,9 +136,12 @@ export default function SignUp(){
           />
 
           <div className={styles.signupFormBtn}>
-          <button type="submit">
-            Next
-          </button>
+             <button type="submit" disabled={
+              firstName === '' ||
+              lastName === ''
+             }>
+              Next
+             </button>
           </div>
         </form>
       </div>
@@ -114,7 +167,30 @@ export default function SignUp(){
             name="age"
             onChange={(e) => setAge(e.target.value)}
           />
-  
+
+          <div className={styles.radioInputs}>
+            <label>
+              <input 
+                type="radio"
+                name="gender"
+                onClick={() => {
+                  setGender('Male');
+                }}
+              />
+              Male
+            </label>
+            <label>
+              <input 
+                type="radio"
+                name="gender"
+                onClick={() => {
+                  setGender('Female');
+                }}
+              />
+              Female
+            </label>
+          </div>
+
           <label>
             Enter your weight in pounds
           </label>
@@ -147,7 +223,13 @@ export default function SignUp(){
           <button onClick={backBtn}>
             Back
           </button>
-          <button type="submit">
+          <button type="submit" disabled={
+            age < 18 ||
+            gender === '' ||
+            weight < 100 ||
+            heightFt < 4 ||
+            heightIn < 0
+          }>
             Next
           </button>
           </div>
@@ -224,7 +306,6 @@ export default function SignUp(){
           <label className={styles.passwordLabel}>
             Password
             <p>Must be at least 8 characters long</p>
-            <p>Must include at least 1 number</p>
           </label>
           <input 
             type="password"
@@ -240,7 +321,10 @@ export default function SignUp(){
           }}>
             Back
           </button>
-          <button type="submit">
+          <button type="submit" disabled={
+            !/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email) ||
+            password.length < 8
+          }>
             Sign Up
           </button>
           </div>

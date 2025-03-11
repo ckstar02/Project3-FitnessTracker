@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import personalGoal from '../pages/personalGoals';
 
 export const GoalManager = () => {
     const [goals, setGoals] = useState([[],[]]);
@@ -11,11 +12,13 @@ export const GoalManager = () => {
     };
 
     const submitGoal = () => {
+        setSubject(document.getElementById('subjectText').value);
+        setDescription(document.getElementById('descriptionText').value)
         const newGoals = [...goals];
         newGoals[0].push(subject);
         newGoals[1].push(description);
         setGoals(newGoals);
-
+        
         setSubject('');
         setDescription('');
         setPopupVisible(false);

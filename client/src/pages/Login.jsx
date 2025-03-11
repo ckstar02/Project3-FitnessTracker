@@ -13,10 +13,31 @@ export default function Login(){
     navigate('/signup');
   }
 
-  function loginSubmit(e){
+  async function loginSubmit(e){
     e.preventDefault();
 
-    navigate('/home');
+    const data = {
+      email: email,
+      password: password
+    };
+
+    try {
+      const response = await fetch('/api/auth/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json'},
+        body: JSON.stringify(data)
+      });
+
+      if (!response.ok){
+        const err = await response.json();
+        console.error(err || "There was an issue creating your account.");
+        return;
+      }
+
+      navigate('/home');
+    } catch (err) {
+      console.error('There was an issue logging into your account: ' +err.message);
+    }
   }
 
   return(

@@ -13,12 +13,12 @@
 .nameForm{
   border: 1.5px solid black;
   width: 20%;
-  height: 35vh;
-  width: 50vh;
+  height: 50%;
+  width: 20%;
 }
 
 .nameForm label, .nameForm input, .nameForm button{
-  margin: 20px;
+  margin: 15px;
   display: block;
 }
 
@@ -45,6 +45,14 @@
   opacity: 0.7;
 }
 
+.signupFormBtn button:disabled{
+  opacity: 0.5;
+}
+
+.signupFormBtn button:disabled:hover{
+  cursor: not-allowed;
+}
+
 .generalForm{
   border: 1.5px solid black;
   width: 20%;
@@ -66,6 +74,26 @@
 .generalFormBtns{
   display: flex;
   justify-content: space-between;
+}
+
+.radioInputs{
+  display: flex;
+  justify-content: space-between;
+  padding-right: 100px;
+  padding-left: 100px;
+}
+
+.radioInputs label{
+  width: 100px;
+  text-align: center;
+}
+
+.radioInputs input{
+  width: 20px;
+  margin: 0;
+  margin-left: 40px;
+  margin-bottom: 10px;
+  height: 20px;
 }
 
 .activityForm{
@@ -131,6 +159,13 @@
   opacity: 0.7;
 }
 
+.signupFormBtns button:disabled{
+  opacity: 0.5;
+}
+
+.signupFormBtns button:disabled:hover{
+  cursor: not-allowed;
+}
 .activityBtn{
   background-color: rgb(241, 241, 241);
   text-align: center;
@@ -183,4 +218,85 @@
 
 label{
   font-weight: bold;
+}
+
+@media (max-width: 480px){
+  .nameForm{
+    height: 55%;
+    width: 50vh;
+  }
+  .nameForm input{
+    width: 86%;
+  }
+  .nameForm button{
+    width: 88%;
+  }
+
+  .radioInputs label{
+    width: 100px;
+    text-align: center;
+  }
+  .radioInputs input{
+    width: 20px;
+    margin: 0;
+    margin-bottom: 10px;
+    height: 20px;
+  }
+  .activityForm{
+    width: 64vh;
+  }
+
+  .accountForm input{
+    width: 87%;
+  }
+}
+
+@media (max-width: 768px){
+  .nameForm{
+    width: 52vh;
+  }
+  .activityForm{
+    width: 64vh;
+  }
+}
+
+@media (max-width: 1024px) {
+  .nameForm{
+    width: 52vh;
+  }
+  .activityForm{
+    width: 68vh;
+  }
+}
+
+/* Large Devices (Desktops) */
+@media (max-width: 1280px) {
+  .nameForm{
+    width: 52vh;
+  }
+  .generalForm{
+    width: 64vh;
+  }
+  .activityForm{
+    width: 68vh;
+  }
+  .accountForm{
+    width: 64vh;
+  }
+}
+
+/* Extra Large Screens */
+@media (min-width: 1440px) {
+  .nameForm{
+    width: 52vh;
+  }
+  .generalForm{
+    width: 64vh;
+  }
+  .activityForm{
+    width: 68vh;
+  }
+  .accountForm{
+    width: 62vh;
+  }
 }

@@ -1,0 +1,98 @@
+
+#box {
+    margin: 1%;
+    background: rgb(212, 212, 212);
+    border-radius: 10px;
+    height: 50%;
+    width:98%;
+    display: flex;
+    flex-direction: column;
+}
+#box section{
+    border:none;
+    display:flex;
+    flex-direction:row;
+}
+#box #div-left{
+    border-right:solid 1px black;
+    margin-right:2%;
+    margin-left:1%;
+    margin-bottom: 1%;
+    padding-right: 1%;
+}
+#box #div-right{
+    border-left:solid 1px black;
+    margin-left:2%;
+    margin-bottom: 1%;
+    padding-left:1%;
+}
+#box h1 {
+    text-align: center;
+    padding: 0.5%;
+    margin: 0.5%;
+    border-bottom: 1px solid black;
+    width: 98%;
+}
+#box textarea{
+    width:50%;
+}
+
+.flex-container {
+    display: flex;
+    flex: 1;
+}
+
+.side-div {
+    width: 15%;
+}
+
+#details {
+    flex: 1;
+}
+#details div{
+    width:100%;
+}
+
+#keywordBox{
+    position: absolute;
+    visibility: hidden;
+}
+
+#allergiesBox{
+    position: absolute;
+    visibility: hidden;
+}
+
+#allergiesBox input{
+    display:inline-block;
+    margin:2%;
+}
+
+#dietsBox{
+    position:absolute;
+    visibility: hidden;
+}
+
+#dietsBox input{
+    margin:2%;
+}
+
+#caloriesBox{
+    position:absolute;
+    visibility: hidden;
+}
+
+#nutrientsBox{
+    position:absolute;
+}
+
+#nutrientsBox input{
+    margin:0.8%;
+}
+
+#div-right button{
+    border-radius: 10px;
+    width:35%;
+    height:10%;
+    font-size:20px;
+}
