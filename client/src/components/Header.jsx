@@ -20,10 +20,10 @@ export default function Header(){
         <img src="../../images/fitStart(1).png" onClick={homePageTab} id='logo' alt='FitStartLogo' style={{cursor:'pointer'}}/>
         <img id='user' alt='userProfile' />
         <h2 onClick={personalGoalTab} id='goals' style={{cursor:'pointer'}}>Goals</h2>
-        <h2 id='username'>Username</h2>
+   
       </nav>
 
-      <h1>FitStart</h1>
+      <h1 className="d-flex align-items-center justify-content-center" style={{ color: "yellow"}}>FitStart</h1>
       <div className={styles.profileContainer}>
         <p>Ta'Lee</p>
         <button onClick={activate}>
