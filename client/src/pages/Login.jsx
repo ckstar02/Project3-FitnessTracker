@@ -45,9 +45,9 @@ export default function Login(){
       <header className={styles.heading}>
         <h1>FitStart</h1>
       </header>
-      <secion className={styles.headingContainer}>
+      <section className={styles.headingContainer}>
         <h1>Login to your FitStart account.</h1>
-      </secion>
+      </section>
       <div className={styles.formContainer}>
         <form className={styles.loginForm} onSubmit={loginSubmit}>
           <label>

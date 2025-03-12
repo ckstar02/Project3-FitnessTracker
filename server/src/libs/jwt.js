@@ -4,6 +4,7 @@ dotenv.config()
 
 export function createAccessToken(payload){
     return new Promise((resolve, reject) => {
+        console.log(process.env.TOKEN_SECRET)
         jwt.sign(
             payload, process.env.TOKEN_SECRET,
             {

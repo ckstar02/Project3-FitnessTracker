@@ -10,13 +10,19 @@ export const UserProvider = ({ children }) => {
   const token = Cookies.get('token');
 
   if (!token){
-    console.error('No Token assigned');
+    console.log('No token assigned.');
+    return (
+      <UserContext.Provider value={{ user, setUser }}>
+        {children}
+      </UserContext.Provider>
+    )
   }
 
   const decoded = jwtDecode(token);
   const userId = decoded.id;
 
   useEffect(() => {
+
     const fetchUserData = async () => {
       try {
         const response = await fetch(`api/user/${userId}`, {
