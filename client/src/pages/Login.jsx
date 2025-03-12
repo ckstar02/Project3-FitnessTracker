@@ -42,6 +42,9 @@ export default function Login(){
 
   return(
     <>
+      <header className={styles.heading}>
+        <h1>FitStart</h1>
+      </header>
       <secion className={styles.headingContainer}>
         <h1>Login to your FitStart account.</h1>
       </secion>

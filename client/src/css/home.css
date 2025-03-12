@@ -1,0 +1,100 @@
+.mainContainer{
+  margin: 30px;
+}
+
+.generalContainer{
+  border: 2px solid rgb(0, 0, 0);
+  border-radius: 6px;
+  padding: 20px;
+  display: flex;
+  background-color: rgb(0, 87, 173);
+  color: white;
+}
+
+.generalContainer div{
+  border: 3px solid white;
+  border-radius: 10px;
+  margin: 15px;
+  padding: 20px;
+  font-weight: bold;
+}
+
+.goalsContainer{
+  background-color: rgb(0, 87, 173);
+  color: white;
+  border: 2px solid black;
+  border-radius: 6px;
+  padding: 20px;
+  display: flex;
+}
+
+.goalsContainer div{
+  border: 3px solid white;
+  border-radius: 16px;
+  padding: 10px;
+  margin: 15px;
+}
+
+.goalsContainer button{
+  background-color: white;
+  color: black;
+  font-weight: bold;
+  border: 2px solid black;
+  border-radius: 8px;
+  height: 40px;
+  margin-top: 150px;
+  margin-bottom: 10px;
+}
+
+.goalsContainer button:hover{
+  opacity: 0.7;
+  cursor: pointer;
+  background-color: white;
+  color: black;
+  font-weight: bold;
+  border: 2px solid black;
+  border-radius: 8px;
+  height: 40px;
+  margin-top: 150px;
+  margin-bottom: 10px;
+}
+
+.recipeContainer{
+  background-color: rgb(0, 87, 173);
+  color: white;
+  border: 2px solid black;
+  border-radius: 6px;
+  padding: 20px;
+  display: flex;
+}
+
+.recipeContainer div{
+  border: 3px solid white;
+  border-radius: 16px;
+  padding: 10px;
+  margin: 15px;
+}
+
+.recipeContainer button{
+  background-color: white;
+  color: black;
+  font-weight: bold;
+  border: 2px solid black;
+  border-radius: 8px;
+  height: 40px;
+  margin-top: 150px;
+  margin-bottom: 10px;
+}
+
+.recipeContainer button:hover{
+  opacity: 0.7;
+  cursor: pointer;
+  background-color: white;
+  color: black;
+  font-weight: bold;
+  border: 2px solid black;
+  border-radius: 8px;
+  height: 40px;
+  margin-top: 150px;
+  margin-bottom: 10px;
+}
