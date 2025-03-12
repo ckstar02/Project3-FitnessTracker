@@ -34,6 +34,7 @@
   overflow: hidden;
   width: 7%;
   margin-bottom: 13px;
+  height: 100px;
 }
 
 .profileContainer button:hover{
@@ -64,11 +65,32 @@
 .dropdownActive{
   display: block;
   position: absolute;
-  background-color: rgb(174, 195, 209);
+  background-color: white;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   z-index: 1000;
   border: 1px solid black;
   padding: 10px;
   margin-top: 34px;
   width: 100px;
+  margin-top: 10.4%;
+}
+
+.dropdownActive button{
+  height: 40px;
+  width: 100%;
+  border: 1px solid dodgerblue;
+  border-radius: 16px;
+  background-color: white;
+  color: dodgerblue;
+  font-size: auto;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.dropdownActive button:hover{
+  color: white;
+  background-color: dodgerblue;
+  border-color: white;
 }

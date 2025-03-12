@@ -1,8 +1,17 @@
 import '../css/recipieSearch.css';
 import React from 'react';
 import Header from '../components/Header';
+import {useNavigate} from 'react-router-dom';
 
 export default function recipieSearch(){
+    const navigate = useNavigate();
+    const handleClick = () => {
+        const result = {searchRecipie};
+        navigate.push ({
+            pathname: './recipieList',
+            state: { result }
+        });
+    };
   return(
     <>
       <Header />
@@ -78,7 +87,7 @@ export default function recipieSearch(){
                             </div>
                         </section>
                         <div id='div-right' class='side-div'>
-                            <button id='searchButton'onClick={searchRecipie}>Search</button>
+                            <button id='searchButton'onClick={handleClick}>Search</button>
                         </div>
                     </section>
                 </div>
