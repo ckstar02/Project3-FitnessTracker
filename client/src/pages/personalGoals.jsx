@@ -16,9 +16,9 @@ export default function personalGoal(){
                         <div id='popupContainer'>
                             <h2>Add Personal Goal</h2>
                             <h3>Subject</h3>
-                            <textarea id='subjectText'/>
+                            <textarea/>
                             <h3>Description</h3>
-                            <textarea id='descriptionText'/>
+                            <textarea/>
                             <br/>
                             <br/>
                             <button onClick={GoalManager}>Submit</button>
