@@ -83,6 +83,8 @@ export default function SignUp(){
         body: JSON.stringify(data)
       });
 
+      console.log(response);
+
       if (!response.ok){
         const err = await response.json();
         console.error(err || "There was an issue creating your account.");
@@ -109,9 +111,12 @@ export default function SignUp(){
   if (nameForm){
     return(
       <>
-      <secion className={styles.headingContainer}>
+      <header className={styles.heading}>
+        <h1>FitStart</h1>
+      </header>
+      <section className={styles.headingContainer}>
         <h2>Welcome to FitStart!</h2>
-      </secion>
+      </section>
       <div className={styles.formContainer}>
         <form className={styles.nameForm} onSubmit={nameFormSubmit}>
           <h3 style={{ textAlign: "center" }}>First, what is your name?</h3>
@@ -152,9 +157,9 @@ export default function SignUp(){
   if(generalForm){
     return(
       <>
-      <secion className={styles.headingContainer}>
+      <section className={styles.headingContainer}>
         <h2>Welcome to FitStart!</h2>
-      </secion>
+      </section>
       <div className={styles.formContainer}>
         <form className={styles.generalForm} onSubmit={generalFormSubmit}>
           <h3 style={{ textAlign: "center" }}>Please fill in the following information.</h3>
@@ -243,9 +248,9 @@ export default function SignUp(){
   if(activityForm){
     return (
       <>
-      <secion className={styles.headingContainer}>
+      <section className={styles.headingContainer}>
         <h2>Welcome to FitStart!</h2>
-      </secion>
+      </section>
       <div className={styles.formContainer}>
         <form className={styles.activityForm} onSubmit={activityFormSubmit}>
           <h3 style={{ textAlign: "center" }}>Please select what best represents your activity level.</h3>
@@ -288,9 +293,9 @@ export default function SignUp(){
   if(accountForm){
     return(
       <>
-      <secion className={styles.headingContainer}>
+      <section className={styles.headingContainer}>
         <h2>Welcome to FitStart!</h2>
-      </secion>
+      </section>
       <div className={styles.formContainer}>
         <form className={styles.accountForm} onSubmit={accountFormSubmit}>
           <h3 style={{ textAlign: "center" }}>Please provide an email and password.</h3>

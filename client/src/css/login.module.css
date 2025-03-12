@@ -1,3 +1,14 @@
+.heading{
+  display: flex;
+  justify-content: center;
+  background-color:dodgerblue;
+  color: white;
+}
+
+.heading h1{
+  font-size: 40px;
+}
+
 .headingContainer{
   margin: 20px;
   display: flex;

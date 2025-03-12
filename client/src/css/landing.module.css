@@ -1,3 +1,14 @@
+.heading{
+  display: flex;
+  justify-content: center;
+  background-color:dodgerblue;
+  color: white;
+}
+
+.heading h1{
+  font-size: 40px;
+}
+
 .container{
   margin: 60px;
 }
@@ -36,3 +47,4 @@
 .goalInfoContainer{
   margin-top: 150px;
 }
+

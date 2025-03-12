@@ -10,3 +10,8 @@ export const personalGoalTab = () => {
     const navigate = useNavigate();
     navigate ('/personalGoal');
 }
+
+export const recipieSearchTab = () => {
+    const navigate = useNavigate();
+    navigate ('/recipeSearch');
+}

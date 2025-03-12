@@ -1,5 +1,4 @@
-import React, {useEffect, useData} from 'react';
-import { useLocation } from 'react-router-dom';
+import React, {useState, useEffect, useData} from 'react';
 import recipieSearch from '../pages/recipieSearch';
 
 export const searchRecipie = () => {
@@ -37,38 +36,10 @@ export const searchRecipie = () => {
     const noOilAdded = document.getElementById('noOilAdded');
     const paleo = document.getElementById('paleo');
     const pescatarian = document.getElementById('pescatarian');
-    const porkFree = document.getElementById('porkFree');
     const redMeatFree = document.getElementById('redMeatFree');
     const sugarConcious = document.getElementById('sugarConcious');
     const vegan = document.getElementById('vegan');
     const vegetarian = document.getElementById('vegetarian');
-    const fat = document.getElementById('fat');
-    const saturated = document.getElementById('saturated');
-    const trans = document.getElementById('trans');
-    const monounsaturated = document.getElementById('monounsaturated');
-    const polyunsaturated = document.getElementById('polyunsaturated');
-    const carbs = document.getElementById('carbs');
-    const fiber = document.getElementById('fiber');
-    const sugars = document.getElementById('sugars');
-    const protein = document.getElementById('protein');
-    const cloesterol = document.getElementById('cloesterol');
-    const sodium = document.getElementById('sodium');
-    const calcium = document.getElementById('calcium');
-    const magnesium = document.getElementById('magnesium');
-    const potassium = document.getElementById('potassium');
-    const iron = document.getElementById('iron');
-    const phosphorus = document.getElementById('phosphorus');
-    const vitaminA = document.getElementById('vitaminA');
-    const vitaminC = document.getElementById('vitaminC');
-    const thiamin = document.getElementById('thiamin');
-    const ribolavin = document.getElementById('ribolavin');
-    const niacin = document.getElementById('niacin');
-    const vitaminB6 = document.getElementById('vitaminB6');
-    const folate = document.getElementById('folate');
-    const vitaminB12 = document.getElementById('vitaminB12');
-    const vitaminD = document.getElementById('vitaminD');
-    const vitaminE = document.getElementById('vitaminE');
-    const vitaminK = document.getElementById('vitaminK');
     const caloriesMAX = document.getElementById('caloriesMAX');
     const caloriesMIN = document.getElementById('caloriesMIN');
     
@@ -220,7 +191,7 @@ export const searchRecipie = () => {
                                 <h3>{label}</h3>
                                 <img src={thumbnailUrl} alt={label} />
                                 <a href={shareAs} target="_blank" rel="noopener noreferrer">View Recipe </a>
-                                <button onClick={test}>Save</button>
+                                <button onClick={saveToFavorites}>Save</button>
                             </li>
                         );
                     })}

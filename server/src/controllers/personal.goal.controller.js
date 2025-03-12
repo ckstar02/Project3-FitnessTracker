@@ -1,4 +1,4 @@
-import PersonalGoal from '../models/personal.goals.js'
+import { PersonalGoal } from '../models/index.js';
 
 export const getAllPersonalGoals = async (req, res) => {
     const goals = await PersonalGoal.find()

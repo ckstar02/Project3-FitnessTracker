@@ -13,4 +13,5 @@ const personalGoalSchema = new mongoose.Schema({
     timestamps: true,
 })
 
-export default mongoose.model('PersonalGoal', personalGoalSchema)
+const PersonalGoal = mongoose.model('PersonalGoal', personalGoalSchema);
+export default PersonalGoal;
