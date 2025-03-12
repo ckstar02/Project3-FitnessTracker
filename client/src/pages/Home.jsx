@@ -1,5 +1,5 @@
 import '../css/home.css';
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import Header from '../components/Header';
 import { useNavigate } from 'react-router-dom';
 import { UserContext } from '../components/UserContext';
@@ -7,7 +7,14 @@ import { UserContext } from '../components/UserContext';
 export default function Home(){
   const navigate = useNavigate();
   const { user } = useContext(UserContext);
-  console.log(user);
+  const [subtractNum, setNum] = useState(0);
+  const [addNum, setAddNum] = useState(0);
+  const [minutes, setMinutes] = useState(0);
+  // console.log(user);
+
+  function calculateExercise(){
+    setAddNum(minutes * 10);
+  }
 
   return(
     <>
@@ -61,14 +68,26 @@ export default function Home(){
         <div>
         <h2>Calories:</h2>
         <p>Remaining: Goal - Food + Exercise</p>
-        <h3 style={{ textAlign: 'center' }}>{user.caloricIntake}</h3>
+        <h3 style={{ textAlign: 'center' }}>{user.caloricIntake + addNum - subtractNum}</h3>
         <p style={{ textAlign: 'center' }}>Remaining</p>
         </div>
 
         <div>
-          <h1></h1>
-          <h2>Goal</h2>
-          <p style={{ textAlign: 'center' }}>2100</p>
+          <h2>What's your goal:</h2>
+          <p style={{ textAlign: 'center' }}>0.5lbs every week</p>
+          <button className="subtractBtn" onClick={() => {setNum(500)}}>- 500 to calories</button>
+          <p style={{ textAlign: 'center' }}>1lb every week</p>
+          <button className="subtractBtn" onClick={() => {setNum(1000)}}>- 1000 to calories</button>
+        </div>
+
+        <div className='exerciseContainer'>
+          <h2>How many minutes have you ran today</h2>
+          <input 
+            type="number"
+            name="minsRan"
+            onChange={(e) => setMinutes(e.target.value)}
+          />
+          <button onClick={calculateExercise}>Submit</button>
         </div>
       </div>
 

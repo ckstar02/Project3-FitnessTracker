@@ -48,8 +48,6 @@ export default function Header(){
    
       </nav>
 
-      <h1>FitStart!</h1>
-
       <div className={styles.profileContainer}>
         <p></p>
         <button onClick={activate}>
