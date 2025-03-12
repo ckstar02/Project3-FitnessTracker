@@ -1,6 +1,7 @@
 import '../css/recipieSearch.css';
 import React from 'react';
 import Header from '../components/Header';
+import searchRecipie from '../components/searchRecipie'
 
 export default function recipieSearch(){
   return(
