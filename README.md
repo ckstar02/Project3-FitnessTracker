@@ -24,19 +24,19 @@ https://fitstart.onrender.com/
 
 ## Contributors
 
--**[Mason Muggenbord](https://github.com/MasonMug)**
--**[Charisse Katelyn](https://github.com/ckstar02)**
--**[Nattan Aguia](https://github.com/ckstar02)**
--**[Victoria Cerda](https://github.com/honeyocean)**
--**[Ta’Lee Hollins](https://github.com/TalHol06)**
+-[Mason Muggenbord](https://github.com/MasonMug)
+-[Charisse Katelyn](https://github.com/ckstar02)
+-[Nattan Aguia](https://github.com/ckstar02)
+-[Victoria Cerda](https://github.com/honeyocean)
+-[Ta’Lee Hollins](https://github.com/TalHol06)
 
 ## Questions
 
 If you have additional questions, please contact me by email at:
 
 
--**[masong.mug@gmail.com](masong.mug@gmail.com)**
--**[Charisse Katelyn](Charisse Katelyn)**
--**[nattan23@msn.com](nattan23@msn.com)**
--**[vcerda1011@gmail.com](vcerda1011@gmail.com)**
--**[taleeh98454@gmail.com](taleeh98454@gmail.com)**
+-[masong.mug@gmail.com](masong.mug@gmail.com)
+-[Charisse Katelyn](Charisse Katelyn)
+-[nattan23@msn.com](nattan23@msn.com)
+-[vcerda1011@gmail.com](vcerda1011@gmail.com)
+-[taleeh98454@gmail.com](taleeh98454@gmail.com)
