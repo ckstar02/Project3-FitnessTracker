@@ -15,7 +15,7 @@ export default function LandingPage(){
     </header>
     <div className={styles.container}>
       <h1>Nutrition tracking made easy</h1>
-      <div>
+      <div className='align-items-center' style={{width: "100%"}}>
         <p>Conquer your fitness goals with this all in one fitness tracker.</p>
         <button className={styles.signupBtn} onClick={navToSignUp}>Start Today</button>
       </div>

@@ -1,9 +1,12 @@
 import express from 'express';
 import db from './config/connection.js';
 import routes from './routes/app.js';
+import path from 'node:path';
 
 import morgan from 'morgan';
 import cookieParser from 'cookie-parser';
+
+const __dirname = path.resolve()
 
 await db();
 
@@ -21,7 +24,7 @@ app.use(cookieParser());
 if (process.env.NODE_ENV === 'production'){
   app.use(express.static(path.join(__dirname, '../client/dist')));
 
-  app.get('*', (_req, res) => {
+  app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, '../client/dist/index.html'));
   });
 }

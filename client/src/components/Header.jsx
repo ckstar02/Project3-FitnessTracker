@@ -39,7 +39,7 @@ export default function Header(){
         <img src="../../images/fitStart(1).png" onClick={homePageTab} id='logo' alt='FitStartLogo' style={{cursor:'pointer'}}/>
         <img id='user' alt='userProfile' />
         <h2 onClick={personalGoalTab} id='goals' style={{cursor:'pointer'}}>Goals</h2>
-        <h2 id='username'>Username</h2>
+   
       </nav>
 
       <div className={styles.profileContainer}>

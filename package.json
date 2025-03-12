@@ -4,15 +4,12 @@
   "description": "",
   "main": "server/server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "npm run build && npm run server",
-    "start:dev": "npx concurrently \"npm run server:dev\" \"wait-on tcp:3001 && npm run client:dev\"",
-    "client:dev": "cd client && npm run dev",
-    "server": "cd server && npm start",
-    "server:dev": "cd server && npm run start",
+    "start": "cd server && npm start",
+    "start:dev": "npx concurrently \"cd server && npm run watch\" \"cd client && npm run dev\"",
     "install": "cd server && npm i && cd ../client && npm i",
+    "clean": "rm -rf node_modules client/node_modules client/dist server/node_modules",
     "build": "cd client && npm run build",
-    "clean": "rm -fr node_modules client/node_modules client/dist server/node_modules"
+    "seed": "cd server && npm run seed"
   },
   "keywords": [],
   "author": "",
