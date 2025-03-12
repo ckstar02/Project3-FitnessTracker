@@ -4,12 +4,18 @@ import { homePageTab } from './SwitchTab';
 import { personalGoalTab } from './SwitchTab';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import Cookies from 'js-cookie';
 
 export default function Header(){
   const navigate = useNavigate();
+  const token = Cookies.get('token');
 
-  const [isLoggedIn, setLoggedIn] = useState(false);
+  const [isLoggedIn, setLoggedIn] = useState(true);
   const [isActive, setIsActive] = useState(false);
+
+  if (!token){
+    setLoggedIn(false);
+  }
 
   function activate(){
     setIsActive((prev) => !prev);

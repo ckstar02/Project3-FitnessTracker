@@ -8,6 +8,10 @@ export default function LandingPage(){
     navigate('/signup');
   }
 
+  function navToLogin(){
+    navigate('/login');
+  }
+
   return(
     <>
     <header className={styles.heading}>
@@ -18,8 +22,9 @@ export default function LandingPage(){
       <div className='align-items-center' style={{width: "100%"}}>
         <p>Conquer your fitness goals with this all in one fitness tracker.</p>
         <button className={styles.signupBtn} onClick={navToSignUp}>Start Today</button>
+        <p>Have an account already? Login!</p>
+        <button className={styles.signupBtn} onClick={navToLogin}>Login</button>
       </div>
-      {/* <p>dwaudawo  diaowd iwa knak dwaid; adad awda; da da dwd asn dowj an</p> */}
 
       <div className={styles.recipeInfoContainer}>
         <h1>Have access to millions of healthly recipes on the web</h1>

@@ -1,5 +1,4 @@
 import React, { createContext, useState, useEffect } from "react";
-import { User } from "../../../server/src/models";
 import Cookies from 'js-cookie';
 import { jwtDecode } from 'jwt-decode';
 
