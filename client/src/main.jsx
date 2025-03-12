@@ -11,7 +11,7 @@ import LandingPage from "./pages/LandingPage";
 import Login from "./pages/Login";
 import SignUp from "./pages/SignUp";
 import RecipeSearch from './pages/recipieSearch';
-import personalGoal from "./pages/personalGoals";
+import PersonalGoals from "./pages/personalGoals";
 import { PersonalGoal, User } from "../../server/src/models";
 
 const router = createBrowserRouter([
@@ -45,7 +45,7 @@ const router = createBrowserRouter([
       },
       {
         path: 'personalGoal',
-        element: <personalGoal />
+        element: <PersonalGoals />
       },
       {
         path: 'recipesearch',

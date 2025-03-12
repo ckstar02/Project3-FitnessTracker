@@ -6,12 +6,12 @@ const router = Router();
 
 router.route('/').get(authRequired, getAllGoals);
 
-router.route('/:id').get(authRequired, getGoal);
+router.route('/:goalId').get(authRequired, getGoal);
 
-router.route('/').post(authRequired, createGoal);
+router.route('/user/:id').post(authRequired, createGoal);
 
-router.route('/:id').put(authRequired, updateGoal);
+router.route('/:goalId/user/:userId').put(authRequired, updateGoal);
 
-router.route('/:id').delete(authRequired, deleteGoal);
+router.route('/:goalId/user/:userId').delete(authRequired, deleteGoal);
 
 export { router as dailyGoalRoutes };
