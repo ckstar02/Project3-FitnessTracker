@@ -1,7 +1,7 @@
 import '../css/recipieSearch.css';
 import React from 'react';
 import Header from '../components/Header';
-import {searchRecipie} from '../components/searchRecipie'
+import { searchRecipie } from '../components/searchRecipie';
 
 export default function recipieSearch(){
   return(
@@ -113,7 +113,7 @@ export default function recipieSearch(){
                             </div>
                         </section>
                         <div id='div-right' class='side-div'>
-                            <button id='searchButton'onClick={searchRecipie}>Search</button>
+                            <button id='searchButton' onClick={searchRecipie}>Search</button>
                         </div>
                     </section>
                 </div>
