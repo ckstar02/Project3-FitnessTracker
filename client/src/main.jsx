@@ -13,6 +13,7 @@ import SignUp from "./pages/SignUp";
 import RecipeSearch from './pages/recipieSearch';
 import PersonalGoals from "./pages/personalGoals";
 import { PersonalGoal, User } from "../../server/src/models";
+import Calendar from './pages/Calendar';
 import DailyGoalPage from "./pages/DailyGoals";
 
 const router = createBrowserRouter([
@@ -59,6 +60,10 @@ const router = createBrowserRouter([
       {
         path: 'dailygoal',
         element: <DailyGoalPage />
+      },
+      {
+        path: 'calendar',
+        element: <Calendar />
       }
     ]
   }

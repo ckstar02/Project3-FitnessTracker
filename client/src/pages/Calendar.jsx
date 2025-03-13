@@ -1,7 +1,9 @@
 import React, { useState } from "react";
-import "./css/calender.sty.css";
+import '../css/calender.css';
+import { useNavigate } from "react-router-dom";
 
 const App = () => {
+  const navigate = useNavigate();
 
   const [popup, setpopup] = useState(false);
   const [goal, setgoal] = useState("");
@@ -30,10 +32,12 @@ const App = () => {
   const daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 
   return (
+    <>
     <div className="container">
       <div className="calendar">
         <div className="calendar-header">
           <span>{getCurrentdate()}</span>
+          <button className="add-button" onClick={() => {navigate('/home')}}>Home</button>
           <button className="add-button" onClick={() => setpopup(true)}>Add goal</button>
         </div>
         <div className="calendar-days">
@@ -77,6 +81,7 @@ const App = () => {
         </ul>
       </div>
     </div>
+    </>
   );
 };
 

@@ -83,6 +83,12 @@ export default function Home(){
         <button onClick={() => {
           navigate('/dailygoal');
         }}>Add New Goal</button>
+
+        <button onClick={() => {
+          navigate('/calendar');
+        }}>
+          View Calendar
+        </button>
       </div>
 
       <h1>Saved Recipes</h1>
