@@ -41,7 +41,7 @@ export default function Home(){
                 <div className="goalsContainer">
                   <button onClick={() => {
                     navigate('/personalgoals');
-                  }}>Add neww Goal</button>
+                  }}>Add new Goal</button>
                 </div>
       
                 <h1>Saved Recipes</h1>
