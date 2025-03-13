@@ -11,9 +11,10 @@ export const getGoal = async (req, res) => {
 }
 export const createGoal = async (req, res) => {
     const userId = req.params.id;
-    const { hoursOfSleep, caloriesConsumed, activeHours } = req.body;
+    const { name, description } = req.body;
+    
 
-    if (!hoursOfSleep || !caloriesConsumed || !activeHours){
+    if (!name || !description){
         return res.status(400).json({ message: 'ALl fields are required.' });
     }
 
@@ -24,16 +25,15 @@ export const createGoal = async (req, res) => {
         }
 
         const newGoal = await DailyGoals.create({
-            hoursOfSleep,
-            caloriesConsumed,
-            activeHours
+            name,
+            description
         });
 
         const updatedUser = await User.findByIdAndUpdate(
             userId,
-            { $push: { DailyGoals: newGoal._id } },
+            { $push: { dailyGoals: newGoal._id } },
             { new: true }
-        ).populate('DailyGoals');
+        ).populate('dailyGoals');
 
         res.status(201).json({ Goal: newGoal, user: updatedUser });
     } catch (err) {

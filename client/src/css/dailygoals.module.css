@@ -1,0 +1,60 @@
+.headingContainer{
+  margin: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.formContainer{
+  margin: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.formContainer form{
+  border: 1.75px solid black;
+  padding: 20px;
+  height: 100%;
+  width: 20%;
+  border-radius: 8px;
+}
+
+.formContainer label, .formContainer input, .formContainer textarea, .formContainer button{
+  display: block;
+  margin: 15px;
+  height: 15%;
+  width: 90%;
+}
+
+.formContainer input{
+  border: 1.5px solid black;
+  height: 30px;
+  border-radius: 6px;
+}
+
+.formContainer textarea{
+  border: 1.5px solid black;
+  height: 60px;
+  border-radius: 6px;
+}
+
+.formContainer button{
+  width: 92%;
+  height: 50px;
+  border-radius: 16px;
+  border: 1px solid dodgerblue;
+  background-color: white;
+  color: dodgerblue;
+  font-weight: bold;
+}
+
+.formContainer button:hover{
+  opacity: 0.7;
+  background-color: dodgerblue;
+  color: white;
+  cursor: pointer;
+}
+
+.formContainer button:disabled{
+  opacity: 0.4;
+  cursor: not-allowed;
+}

@@ -13,6 +13,7 @@ import SignUp from "./pages/SignUp";
 import RecipeSearch from './pages/recipieSearch';
 import PersonalGoals from "./pages/personalGoals";
 import { PersonalGoal, User } from "../../server/src/models";
+import DailyGoalPage from "./pages/DailyGoals";
 
 const router = createBrowserRouter([
   {
@@ -54,6 +55,10 @@ const router = createBrowserRouter([
       {
         path: 'personalgoals',
         element: <PersonalGoal />
+      },
+      {
+        path: 'dailygoal',
+        element: <DailyGoalPage />
       }
     ]
   }

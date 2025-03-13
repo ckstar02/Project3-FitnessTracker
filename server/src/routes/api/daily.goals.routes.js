@@ -8,7 +8,7 @@ router.route('/').get(authRequired, getAllGoals);
 
 router.route('/:goalId').get(authRequired, getGoal);
 
-router.route('/user/:id').post(authRequired, createGoal);
+router.route('/user/:id').post(createGoal);
 
 router.route('/:goalId/user/:userId').put(authRequired, updateGoal);
 
