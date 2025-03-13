@@ -10,15 +10,15 @@ https://fitstart.onrender.com/
 
 ### Sign Up
 
-[SignUp](./assets/sign%20up.jpg)
+![SignUp](./assets/sign%20up.jpg)
 
 ### Loging
 
-[Login](./assets/login%20pro.jpg)
+![Login](./assets/login%20pro.jpg)
 
 ### Application
 
-[App](./assets/app.jpg)
+![App](./assets/app.jpg)
 
 ## Technologies Used
 
