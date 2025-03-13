@@ -82,7 +82,7 @@ export default function Home(){
       ))}
         <button onClick={() => {
           navigate('/dailygoal');
-        }}>Add new Goal</button>
+        }}>Add New Goal</button>
       </div>
 
       <h1>Saved Recipes</h1>
@@ -90,7 +90,7 @@ export default function Home(){
 
         <button onClick={() => {
           navigate('/recipesearch');
-        }}>Search for new Recipe</button>
+        }}>Search For New Recipe</button>
       </div>
     </main>
       }
