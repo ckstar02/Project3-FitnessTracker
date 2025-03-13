@@ -21,7 +21,7 @@ export default function Home(){
       <Header/>
       {!user ?
                 <main className="mainContainer">
-                <h1>General</h1>
+                <h1>GenDeral</h1>
                 <div className="generalContainer">
                   <div>
                   <h2>Calories:</h2>
