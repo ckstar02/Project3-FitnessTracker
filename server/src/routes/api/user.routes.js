@@ -8,6 +8,6 @@ router.get('/', getAllUsers);
 router.get('/:id', getUser);
 router.route('/:id/goals').get(getUserGoals);
 router.put('/:id', authRequired, updateUser);
-router.delete('/:id', authRequired, deleteUser);
+router.delete('/:id', deleteUser);
 
 export { router as userRoutes };

@@ -28,18 +28,27 @@ export const getUser = async (req, res) => {
 
 
 export const deleteUser = async (req, res) => {
-    const survey = await UserSurvey.findByIdAndDelete(req.params.id)
-    
-    if (!survey) return res.status(404).json({ message: "Survey not found"})
-    res.json(survey)
+    const userId = req.params.id;
+
+    try {
+        const deletedUser = await User.findByIdAndDelete(userId);
+
+        if (!deletedUser){
+            return res.status(404).json({ message: 'User by that id not found' });
+        }
+
+        res.status(200).json({deletedUser});
+    } catch (err) {
+        res.status(500).json({ message: err.message });
+    }
 }
 
 export const updateUser = async (req, res) =>{
-    const survey = await UserSurvey.findByIdAndUpdate(req.params.id, req.body, {
+    const user = await User.findByIdAndUpdate(req.params.id, req.body, {
         new: true
     })
-    if (!survey) return res.status(404).json({message: "Survey not found"})
-    res.json(survey)
+    if (!user) return res.status(404).json({message: "Survey not found"})
+    res.json(user)
 }
 
 export const getUserGoals = async (req, res) => {
