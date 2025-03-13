@@ -1,5 +1,5 @@
 import '../css/home.css';
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import Header from '../components/Header';
 import { useNavigate } from 'react-router-dom';
 import { UserContext } from '../components/UserContext';
@@ -7,59 +7,40 @@ import { UserContext } from '../components/UserContext';
 export default function Home(){
   const navigate = useNavigate();
   const { user } = useContext(UserContext);
+  const [goals, setGoals] = useState([]);
   const [subtractNum, setNum] = useState(0);
   const [addNum, setAddNum] = useState(0);
   const [minutes, setMinutes] = useState(0);
-  // console.log(user);
+  
+  const userId = user?._id;
 
   function calculateExercise(){
     setAddNum(minutes * 10);
   }
 
+  useEffect(() => {
+    if (!userId) return;
+
+    const fetchGoals = async () => {
+      const response = await fetch(`/api/user/${userId}/goals`);
+
+    if (!response.ok){
+      const err = await response.json();
+      console.error(err.error);
+      return;
+    }
+
+    setGoals(await response.json());
+    };
+    fetchGoals();
+  }, [userId])
+
   return(
     <>
       <Header/>
       {!user ?
-                <main className="mainContainer">
-                <h1>General</h1>
-                <div className="generalContainer">
-                  <div>
-                  <h2>Calories:</h2>
-                  <p>Remaining: Goal - Food + Exercise</p>
-                  <h3 style={{ textAlign: 'center' }}>2100</h3>
-                  <p style={{ textAlign: 'center' }}>Remaining</p>
-                  </div>
+    <main className="mainContainer">
       
-                  <div>
-                    <h1>Name: </h1>
-                    <h2>Goal</h2>
-                    <p style={{ textAlign: 'center' }}>2100</p>
-                  </div>
-                </div>
-      
-                <h1>Daily Goals</h1>
-                <div className="goalsContainer">
-                  <button onClick={() => {
-                    navigate('/personalgoals');
-                  }}>Add new Goal</button>
-                </div>
-      
-                <h1>Saved Recipes</h1>
-                <div className="recipeContainer">
-                  <div>
-                    <h2>Pasta</h2>
-                    <img />
-                    <p>Link to Recipe: <a></a></p>
-                  </div>
-                  <div>
-                    <h2>Chicken</h2>
-                    <img />
-                    <p>Link to Recipe: <a></a></p>
-                  </div>
-                  <button onClick={() => {
-                    navigate('/recipesearch');
-                  }}>Search for new Recipe</button>
-                </div>
               </main>
       :
       <main className="mainContainer">
@@ -93,44 +74,23 @@ export default function Home(){
 
       <h1>Daily Goals</h1>
       <div className="goalsContainer">
-      {user.dailyGoals.map((goal, index) => (
+      {goals.map((goal, index) => (
         <div key={index}>
           <h2>{goal.name}</h2>
-          <img src={goal.img}/>
-          <p>Link to recipe: {goal.link}</p>
+          <p>{goal.description}</p>
         </div>
       ))}
-        {/* <div>
-          <h2>hoursOfSleep</h2>
-
-        </div> */}
         <button onClick={() => {
-          navigate('/personalgoals');
-        }}>Add new Goal</button>
+          navigate('/dailygoal');
+        }}>Add New Goal</button>
       </div>
 
       <h1>Saved Recipes</h1>
       <div className="recipeContainer">
-      {user.savedRecipes.map((recipe, index) => (
-        <div key={index}>
-          <h2>{recipe.name}</h2>
-            <img src={recipe.img}/>
-            <p>Link to recipe: {goal.link}</p>
-        </div>
-      ))}
-        {/* <div>
-          <h2>Pasta</h2>
-          <img />
-          <p>Link to Recipe: <a></a></p>
-        </div>
-        <div>
-          <h2>Chicken</h2>
-          <img />
-          <p>Link to Recipe: <a></a></p>
-        </div> */}
+
         <button onClick={() => {
           navigate('/recipesearch');
-        }}>Search for new Recipe</button>
+        }}>Search For New Recipe</button>
       </div>
     </main>
       }

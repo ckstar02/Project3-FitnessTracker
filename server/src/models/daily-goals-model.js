@@ -2,16 +2,12 @@ import mongoose from "mongoose";
 
 
 const dailyGoalsSchema = new mongoose.Schema({
-    hoursOfSleep: {
-        type: Number,
+    name: {
+        type: String,
         required: true,
     },
-    caloriesConsumed: {
-        type: Number,
-        required: true,
-    },
-    activeHours: {
-        type: Number,
+    description: {
+        type: String,
         required: true,
     }
 }, {

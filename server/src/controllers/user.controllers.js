@@ -41,3 +41,18 @@ export const updateUser = async (req, res) =>{
     if (!survey) return res.status(404).json({message: "Survey not found"})
     res.json(survey)
 }
+
+export const getUserGoals = async (req, res) => {
+    try {
+        const userId = req.params.id;
+        const user = await User.findById(userId).populate('dailyGoals');
+
+        if (!user){
+            return res.status(404).json({ message: 'User by that id not found.' });
+        }
+
+        res.status(200).json(user.dailyGoals);
+    } catch (err) {
+        res.status(500).json({ message: err.message });
+    }
+}
