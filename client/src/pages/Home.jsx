@@ -21,7 +21,7 @@ export default function Home(){
       <Header/>
       {!user ?
                 <main className="mainContainer">
-                <h1>GenDeral</h1>
+                <h1>General</h1>
                 <div className="generalContainer">
                   <div>
                   <h2>Calories:</h2>
@@ -41,7 +41,7 @@ export default function Home(){
                 <div className="goalsContainer">
                   <button onClick={() => {
                     navigate('/personalgoals');
-                  }}>Add new Goal</button>
+                  }}>Add neww Goal</button>
                 </div>
       
                 <h1>Saved Recipes</h1>
