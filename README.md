@@ -25,7 +25,7 @@ https://fitstart.onrender.com/
 - **Frontend:** React, Bootstrap
 - **Backend:** Node.js, Express
 - **Database:** MongoDB(Atlas)
-- **API:**
+- **API:** Recipe Search API
 
 
 ## Contributors
