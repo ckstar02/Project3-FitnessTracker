@@ -5,10 +5,13 @@ import { personalGoalTab } from './SwitchTab';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Cookies from 'js-cookie';
+import { jwtDecode } from 'jwt-decode';
 
 export default function Header(){
   const navigate = useNavigate();
   const token = Cookies.get('token');
+  const decoded = jwtDecode(token);
+  const userId = decoded.id;
 
   const [isLoggedIn, setLoggedIn] = useState(true);
   const [isActive, setIsActive] = useState(false);
@@ -37,9 +40,28 @@ export default function Header(){
     navigate('/login');
   }
 
+  async function deleteAccount(){
+    const response = await fetch(`api/user/${userId}`, {
+      method: 'DELETE',
+      headers: { 'Content-Type': 'application/json' },
+    });
+
+    if (!response.ok){
+      console.error('Error occured while deleting your account.');
+    }
+
+    const answer = prompt('Are you sure you want to delete your account? Please enter Yes or No.');
+
+    if (answer === 'Yes' || answer === "yes"){
+      logout();
+      navigate('/login');
+    } else{
+      return;
+    }
+  }
+
   return(
     <header className={styles.header}>
- {/* start_template */}
       <nav>
        <h1>FitStart</h1>
         <img src="../../images/fitStart(1).png" onClick={homePageTab} id='logo' alt='FitStartLogo' style={{cursor:'pointer'}}/>
@@ -64,6 +86,7 @@ export default function Header(){
             navigate('/signup');
           }}>Create Account</button>
           <button onClick={logout}>Logout</button>
+          <button onClick={deleteAccount}>Delete Account</button>
         </div>
         : isActive ?
         <div className={styles.dropdownActive}>
@@ -82,7 +105,6 @@ export default function Header(){
         }
 
       </div>
- {/* main */}
     </header>
   )
 }
