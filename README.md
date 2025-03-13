@@ -8,6 +8,18 @@ https://fitstart.onrender.com/
 
 ## Screenshots
 
+### Sign Up
+
+[SignUp](/assets/sign%20up.jpg)
+
+### Loging
+
+[Login](/assets/login%20pro.jpg)
+
+### Application
+
+[App](/assets/app.jpg)
+
 ## Technologies Used
 
 - **Frontend:** React, Bootstrap
@@ -15,7 +27,6 @@ https://fitstart.onrender.com/
 - **Database:** MongoDB(Atlas)
 - **API:**
 
-## Usage
 
 ## Contributors
 
