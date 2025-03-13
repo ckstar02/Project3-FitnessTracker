@@ -49,7 +49,7 @@ export default function Home(){
         <div>
         <h2>Calories:</h2>
         <p>Remaining: Goal - Food + Exercise</p>
-        <h3 style={{ textAlign: 'center' }}>{user.caloricIntake + addNum - subtractNum}</h3>
+        <h3 style={{ textAlign: 'center' }}>{Math.round(user.caloricIntake) + addNum - subtractNum}</h3>
         <p style={{ textAlign: 'center' }}>Remaining</p>
         </div>
 
